@@ -1,4 +1,9 @@
 Getting Started 
 
 
-Download file RDF
+Download file installation file at <a href='http://rdfonthego.googlecode.com/files/RDFOnTheGo.apk'>http://rdfonthego.googlecode.com/files/RDFOnTheGo.apk</a>
+
+After installation, run application 'RDF on the go', the application will load data file at <a href='http://rdfonthego.googlecode.com/files/data.n3'>http://rdfonthego.googlecode.com/files/data.n3</a>, so it needs internet connection.
+
+
+NOTE: in case If appplication doesn't work, try to create directory /data/local/rdfonthego by using command : adb shell mkdir /data/local/rdfonthego, then try again. 
