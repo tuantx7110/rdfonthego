@@ -5,6 +5,8 @@ Download file installation file at <a href='http://rdfonthego.googlecode.com/fil
 
 After installation, run application 'RDF on the go', the application will load data file at <a href='http://rdfonthego.googlecode.com/files/data.n3'>http://rdfonthego.googlecode.com/files/data.n3</a>, so it needs internet connection.
 
-The demo video can be found at <wiki:video url="http://www.youtube.com/watch?v=5oc4w_IqkKM"/>
+The demo video can be found at:
+
+<wiki:video url="http://www.youtube.com/watch?v=5oc4w_IqkKM"/>
 
 NOTE: in case If appplication doesn't work, try to create directory /data/local/rdfonthego by using command : adb shell mkdir /data/local/rdfonthego, then try again. 
