@@ -7,6 +7,6 @@ After installation, run application 'RDF on the go', the application will load d
 
 Following is the demo video of the prototype :
 
-<wiki:video url="http://www.youtube.com/watch?v=5oc4w_IqkKM"/>
+<wiki:video url="http://www.youtube.com/watch?v=Ae-4ffiWaw0"/>
 
 NOTE: in case If appplication doesn't work, try to create directory /data/local/rdfonthego by using command : adb shell mkdir /data/local/rdfonthego, then try again. 
