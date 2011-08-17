@@ -1,10 +1,31 @@
+
+%%%%%%%%%%%%%%%%%%%%%%% file typeinst.tex %%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% This is the LaTeX source for the instructions to authors using
+% the LaTeX document class 'llncs.cls' for contributions to
+% the Lecture Notes in Computer Sciences series.
+% http://www.springer.com/lncs       Springer Heidelberg 2006/05/04
+%
+% It may be used as a template for your own input - copy it
+% to a new file with a new name and use it as the basis
+% for your article.
+%
+% NB: the document class 'llncs' has its own and detailed documentation, see
+% ftp://ftp.springer.de/data/pubftp/pub/tex/latex/llncs/latex2e/llncsdoc.pdf
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 \documentclass[runningheads,a4paper]{llncs}
 
 \usepackage{amssymb}
-%\setcounter{tocdepth}{3}
+\setcounter{tocdepth}{3}
 \usepackage{graphicx}
 
 \usepackage{url}
+\urldef{\mailsa}\path|{alfred.hofmann, ursula.barth, ingrid.haas, frank.holzwarth,|
+\urldef{\mailsb}\path|anna.kramer, leonie.kunz, christine.reiss, nicole.sator,|
+\urldef{\mailsc}\path|erika.siebert-cole, peter.strasser, lncs}@springer.com|    
 \newcommand{\keywords}[1]{\par\addvspace\baselineskip
 \noindent\keywordname\enspace\ignorespaces#1}
 
@@ -16,7 +37,7 @@
 \title{Linked Personal Personal Information Management  for Mobile Users}
 
 % a short form should be given in case it is too long for the running head
-\titlerunning{Linked Personal Personal Information Management }
+\titlerunning{Linked Personal Personal Information Management}
 
 % the name(s) of the author(s) follow(s) next
 %
@@ -36,28 +57,28 @@
 National University of Ireland Galway, Ireland \\
 %\url{http://www.springer.com/lncs}
 }
+% (feature abused for this document to repeat the title also on left hand pages)
 
+% the affiliations are given next; don't give your e-mail address
+% unless you accept that it will be published
 %
 % NB: a more complex sample for affiliations and the mapping to the
 % corresponding authors can be found in the file "llncs.dem"
 % (search for the string "\mainmatter" where a contribution starts).
 % "llncs.dem" accompanies the document class "llncs.cls".
 %
-%\toctitle{Lecture Notes in Computer Science}
-%\tocauthor{Authors' Instructions}
+
+\toctitle{Lecture Notes in Computer Science}
+\tocauthor{Authors' Instructions}
 \maketitle
 
 
-
-\maketitle
 \begin{abstract}
-This paper present the semantic-based personal information system for mobile users ....
-
-\keywords{mobile, personal information system} % NOT required for Proceedings
-
+The abstract should summarize the contents of the paper and should
+contain at least 70 and at most 150 words. It should be written using the
+\emph{abstract} environment.
+\keywords{mobile, personal information system}
 \end{abstract}
-
-
 
 
 \section{Introduction}
@@ -97,14 +118,5 @@ This paper present the semantic-based personal information system for mobile use
 % initial runs of your .tex file to
 % produce the bibliography for the citations in your paper.
 \bibliographystyle{abbrv}
-\bibliography{spim2u}  % sigproc.bib is the name of the Bibliography in this case
-% You must have a proper ".bib" file
-%  and remember to run:
-% latex bibtex latex latex
-% to resolve all references
-%
-% ACM needs 'a single self-contained file'!
-%
-%APPENDICES are optional
-%\balancecolumns
+\bibliography{spim2u}
 \end{document}
