@@ -83,6 +83,7 @@ contain at least 70 and at most 150 words. It should be written using the
 
 \section{Introduction}
 [Intro here]
+
 \subsection{Motivated Use cases}
 
 -Semantic Life
@@ -95,21 +96,61 @@ contain at least 70 and at most 150 words. It should be written using the
 
 \section{Data integration and alignment}
 
+[Danh to write this section]
+
+Person-centralized data, data is not only about one personal but about all the social relationship that a person have.
+
 - What kind of data to be taken in paper's consideration
 
--How to integrate
+	+ Give examples from data from Semantic Life, Social network application~\cite{Tramp:2010}, Semantic desktops
 
--How to align data from heterogeneous  sources
+Data circle : User and his community created data in data silos how can these information can be linked and shared? 
+In order to link these information there must be place holders that can tight thing to gather, in this case, person is a centric information,
+there fore person identification will be the first class citizen in the personal graphs of data/ personal view of the data/ personal data space. 
+
+As the data comes from different data silos, for example Facebook, twitter, google email, linked in, foaf file, etc, there are different ways to identify 
+a personal because there would be several ID(URI, blank node) to identification a person). This fact leads to the  
+ID consolidation requirements  Idmesh~\cite{Cudre-Mauroux:2009}, sameAs, ...
+
+- Explain how the ID consolidation can be handled here : Master ID schema
+
+
+As personal information are accessible as several fragments as graphs with different identification schema. On top of that, the linkages among 
+URI/blank nodes are published or transformed in different vocabulary. In order to align these linked information in a same graph to give user a single
+view about their personal data space, we need a mechanism for aligning/patching graphs. 
+
+-Explain how to align distributed data into single graph with : mapping rules, multi-layers graph.
+ 
 
 \section{Context-based information navigation}
 
+[Mr Hanh to outline and  this section]
+ 
 -Context-based information filtering and suggestion
 
 -Context-based query on top of SPARQL and indexing system of mobile triple storage....
 
 \section{System design and implementation}
 
+-Architecture : Wrappers(Facebook, twitter, Phone, linked in, etc) , data storage(phone triple storage), 
+ID-reasoner ( SameAs reasoner), content provider ( [Tuan Anh to draw the architecture and describe 
+component here])
+
+-System design
+
+-Implementation details
+	
+	+triple storage for mobile
+	
+	+ Wrapper
+	
+	+Query interfaces 
+
 \section{Demo and evaluation}
+
+-Describe demo and screen shot
+
+-Some evaluations: Evaluation metrics : query response time vs size of data?????
 
 \section{Conclusion and future work}
 
