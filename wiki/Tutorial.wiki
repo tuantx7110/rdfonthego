@@ -3,10 +3,7 @@
 = Introduction =
 
  RDF Onthego is project to build RDF store and query processor on Android phone.
- For more information: http://iswc2010.semanticweb.org/pdf/503.pdf
-= Details =
+ For more information: <a href='http://iswc2010.semanticweb.org/pdf/503.pdf'>RDF On the Go</a>
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+=1. Setup project:=
+ Rdf onthego only supports for Android environment, if you're not familiar with Android programming please take a look at <a href='http://developer.android.com/sdk/index.html'>Android developers page</a>
