@@ -6,4 +6,15 @@
  For more information: <a href='http://iswc2010.semanticweb.org/pdf/503.pdf'>RDF On the Go</a>
 
 =1. Setup project:=
- Rdf onthego only supports for Android environment, if you're not familiar with Android programming please take a look at <a href='http://developer.android.com/sdk/index.html'>Android developers page</a>
+Step 1:<a href='http://developer.android.com/sdk/installing.html'>Create a Android project.</a>
+ RDFOnthego requires Android 2.1 or later version.
+Step 2: Adding rdfonthego external jar file to your Android project
+  - <a href='http://rdfonthego.googlecode.com/files/je-android-4.1.10.jar'>Berkeley JE for Android.</a> Required!
+ 
+  - <a href='http://rdfonthego.googlecode.com/files/deri.org.rdfonthego.iri.jar'>The Jena IRI Library.</a> Required!
+ 
+  - <a href=''>Rdf Core package.</a> Required!
+
+ RDFOnthego only supports for Android environment, if you're not familiar with Android programming please take a look at <a href='http://developer.android.com/sdk/index.html'>Android developers page</a>
+ 
+ After
