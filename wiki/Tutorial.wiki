@@ -1,4 +1,4 @@
-#summary One-sentence summary of this page.
+#summary This tutorial will explain to you how to use RDFonthego packages.
 
 = Introduction =
 
