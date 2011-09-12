@@ -7,14 +7,33 @@
 
 =1. Setup project:=
 Step 1:<a href='http://developer.android.com/sdk/installing.html'>Create a Android project.</a>
- RDFOnthego requires Android 2.1 or later version.
+ RDFOnthego requires Android 2.1 or later version. And don't forget to add WRITE_EXTERNAL_STORAGE permission to your project.
 Step 2: Adding rdfonthego external jar file to your Android project
-  - <a href='http://rdfonthego.googlecode.com/files/je-android-4.1.10.jar'>Berkeley JE for Android.</a> Required!
+  RDFOnthego uses Berkeley DB for storing RDF data
+  
+  - <a href='http://rdfonthego.googlecode.com/files/je-android-4.1.10.jar'>Berkeley JE for Android.</a>  (Required!)
  
-  - <a href='http://rdfonthego.googlecode.com/files/deri.org.rdfonthego.iri.jar'>The Jena IRI Library.</a> Required!
+ Jena and ARQ Semantic Web Toolkit built for Android RDF Store
  
-  - <a href=''>Rdf Core package.</a> Required!
+ - <a href='http://rdfonthego.googlecode.com/files/deri.org.rdfonthego.iri.jar'>The Jena IRI Library.</a> (Required!)
+ 
+ - <a href='http://rdfonthego.googlecode.com/files/deri.org.rdfonthego.core.jar'>RDF Store Engine.</a>  (Required!)
+  
+ Spatial packages if you want to work with Geo data
+ 
+ - <a href='http://rdfonthego.googlecode.com/files/deri.org.rdfonthego.arq.jar'>SPARQL Engine.</a> (Optional!)
+ 
+ - <a href='http://rdfonthego.googlecode.com/files/deri.org.rdfonthego.spatial.jar'>Spatial Engine.</a> (Optional!)
+  
+ And Lucene package
+ 
+ - <a href='http://rdfonthego.googlecode.com/files/lucene-core-2.3.1.jar'>Lucene package</a> and <a href='http://rdfonthego.googlecode.com/files/deri.org.rdfonthego.lucene.jar'>Lucene Jena</a> (Optional!)
 
- RDFOnthego only supports for Android environment, if you're not familiar with Android programming please take a look at <a href='http://developer.android.com/sdk/index.html'>Android developers page</a>
  
- After
+=2. Working with RdfOnthego =
+  RDFOnthego 
+ 
+
+
+
+ 
