@@ -1,4 +1,4 @@
-#summary This tutorial will explain to you how to use RDFonthego packages.
+#summary This tutorial will explain how to use RDFonthego packages.
 
 = Introduction =
 
