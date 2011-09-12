@@ -30,8 +30,9 @@ Step 2: Adding rdfonthego external jar file to your Android project
  - <a href='http://rdfonthego.googlecode.com/files/lucene-core-2.3.1.jar'>Lucene package</a> and <a href='http://rdfonthego.googlecode.com/files/deri.org.rdfonthego.lucene.jar'>Lucene Jena</a> (Optional!)
 
  
-=2. Working with RdfOnthego =
-  RDFOnthego 
+= 2. Working with RDFOnthego =
+  
+ RDFOnthego based on <a href='http://jena.sourceforge.net/'>Jena Semantic Web</a> framework, so that it works like Jena. You can take a look at <a href = 'http://jena.sourceforge.net/tutorial/RDF_API/index.html'> Jena Tutorial </a> for .
  
 
 
