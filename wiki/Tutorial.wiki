@@ -3,8 +3,7 @@
 = Introduction =
 
  RDF Onthego is project to build RDF store and query processor on Android phone.
- For more information: http://www.google.ie/url?sa=t&source=web&cd=2&ved=0CB0QFjAB&url=http%3A%2F%2Fiswc2010.semanticweb.org%2Fpdf%2F503.pdf&rct=j&q=RDF%20onthego&ei=AkJuTvjpNtC1hAe76JyDDA&usg=AFQjCNHf1qoQWShBsuwfeupdFs6pozyvZA&sig2=nAvjlI-BOL5IKRJgQYF9tA&cad=rja
-
+ For more information: http://iswc2010.semanticweb.org/pdf/503.pdf
 = Details =
 
 Add your content here.  Format your content with:
