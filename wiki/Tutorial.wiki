@@ -42,3 +42,10 @@
 *NOTE: We only support for RDF n-triples. You must convert every others RDF format to n-triples first and then put them to your graph.
  
 === 2.3 Query ===
+ Rdfonthego uses <a href='http://openjena.org/ARQ/app_api.html'>JENA ARQ api.</a> and we only supported to "SELECT queries" and n-triples format.
+
+For more details please take a look at our example. How to build a simple android application with rdfonthego.
+ 
+ 
+
+
