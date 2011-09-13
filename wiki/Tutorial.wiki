@@ -24,11 +24,14 @@
  - <a href='http://rdfonthego.googlecode.com/files/lucene-core-2.3.1.jar'>lucene-core-2.3.1.jar</a> and <a href='http://rdfonthego.googlecode.com/files/deri.org.rdfonthego.lucene.jar'>deri.org.rdfonthego.lucene.jar</a> (Optional!) The lucene packages.
 
  
-= 2. Working with RDFOnthego =
+== 2. Working with RDFOnthego ==
   
- RDFOnthego based on <a href='http://jena.sourceforge.net/'>Jena Semantic Web</a> framework, so that it works like Jena. You can take a look at <a href = 'http://jena.sourceforge.net/tutorial/RDF_API/index.html'> Jena Tutorial </a> for .
+ RDFOnthego based on <a href='http://jena.sourceforge.net/'>Jena Semantic Web</a> framework, so that it works like Jena. If you are not familiar with Jena please take a look at <a href = 'http://jena.sourceforge.net/tutorial/RDF_API/index.html'> Jena Tutorial </a> for .
  
+=== 2.1 Create a Graph ===
+ BDBGraph is implementations class of<a href='http://jena.sourceforge.net/javadoc/com/hp/hpl/jena/graph/Graph.html'>Jena Graph interface</a>
+ BDBGraph graph;
 
-
+ graph = new BDBGraph(storeName);   
 
  
