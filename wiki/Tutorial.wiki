@@ -6,10 +6,10 @@
  For more information: <a href='http://iswc2010.semanticweb.org/pdf/503.pdf'>RDF On the Go</a>
 
 ==1. Setup project:==
-    * Step 1:<a href='http://developer.android.com/sdk/installing.html'>Create a Android project.</a>
+ * Step 1:<a href='http://developer.android.com/sdk/installing.html'>Create a Android project.</a>
  RDFOnthego requires Android 2.1 or later version. And don't forget to add WRITE_EXTERNAL_STORAGE permission to your project.
- 
-    * Step 2: Adding rdfonthego external jar file to your Android project
+    
+ * Step 2: Adding rdfonthego external jar file to your Android project
  
   - <a href='http://rdfonthego.googlecode.com/files/je-android-4.1.10.jar'>je-andoird-4.1.10.jar</a>. Berkeley DB JE for Android (Required!)
  
@@ -32,11 +32,11 @@
 
 === 2.2 Adding Triples ===
  There are 3 ways to add triple to graph(store): 
- # Add a single triple to graph:
-    BDBGraph graph;
-    Node s,p,o;
-    Triple = new Triple (s,p,o);
-    graph.add(t);
+ * Add a single triple to graph:
+<ol>  BDBGraph graph; </ol>
+<ol>  Node s,p,o;</ol>
+<ol>  Triple = new Triple (s,p,o);</ol>
+<ol>  graph.add(t); </ol>
  
 
  
