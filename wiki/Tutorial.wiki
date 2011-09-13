@@ -29,9 +29,9 @@
 === 2.2 Adding Triples ===
  There are 3 ways to add triple to graph(store): 
  * Add a single triple to graph:
-<ol>  Node s,p,o;</ol>
-<ol>  Triple = new Triple (s,p,o);</ol>
-<ol>  graph.add(t); </ol>
+    Node s,p,o;
+    Triple = new Triple (s,p,o);
+    graph.add(t); 
  
  * Load Triple from file:
       graph.load(String filePath, String baseUri)
@@ -39,4 +39,6 @@
  * Load Triple from an URL
       graph.load(String url, String baseUri)
 
+*NOTE: We only support for RDF n-triples. You must convert every others RDF format to n-triples first and then put them to your graph.
  
+=== 2.3 Query ===
