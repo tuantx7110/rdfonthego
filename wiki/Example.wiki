@@ -8,38 +8,55 @@
 
 
 = Details =
- In this example, we used RDF store to store the foaf profile. Foaf profiles are converted to n-triples by sindice any23 api. To avoid type the URL,we are using QRCode scanner api. The QRCode generator plug-in for FireFog is easily found by google.com, and QRCode scanner for android at android market.
+ In this example, we used RDF store to store the foaf profile. Foaf profiles are converted to n-triples by sindice any23 api. To avoid type the URL,we are using QRCode scanner api. The QRCode generator plug-in for FireFog is easily found on google.com, and QRCode scanner for android at android market.
 
  * Adding triples to store:
-
+ 
+ //Create or open a store name "example" 
  graph	=	new BDBGraph("example");
 
+ //Retrieve data after converted from any23 api of sindice.
  graph.load("http://api.sindice.com/any23/any23/?format=ntriples&uri="+contactFoaFid, contactFoaFid);
 
+ //Save the graph
+ 
  graph.sync();
 
  * Query name of the foafid 
 
+ //Open the store name "example"
+
  graph		=	new BDBGraph("example");
  
+ //Create the model 
+
  Model model	=	new ModelCom(graph);
-			
+		
+ //This SPARQL query, searching all the name in the store	
+
  String queryString = StrUtils.strjoin("\n", 
+  
   "PREFIX foaf:    <http://xmlns.com/foaf/0.1/>" ,
+ 
   "SELECT DISTINCT ?name {" ,
+  
   "  ?x foaf:name ?name.",
+  
   "}") ;
 		        
+ //Create query
+
  Query query = 	QueryFactory.create(queryString) ;
- nameListString	=	new ArrayList<String>() ;
-		  	        
+		
+ //Create Execution query  
+	        
  QueryExecution qExec = QueryExecutionFactory.create(query, model) ;
-		    
+		   
+ //Get the result
+
  for(ResultSet itr=qExec.execSelect();itr.hasNext();){
      QuerySolution sol=itr.next();
      nameListString.add(sol.get("name").toString());
  }
 
  qExec.close();    
-
- adapter = new ArrayAdapter<String> FoafCollector.this,R.layout.listview,nameListString);
