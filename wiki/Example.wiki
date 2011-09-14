@@ -2,7 +2,9 @@
 
 = Introduction =
 
-Add your content here.
+ This example shows you how to build a simple Android app with RDFOnthego.
+
+The source code is <a href='http://rdfonthego.googlecode.com/files/Example.rar'>here.<a>
 
 
 = Details =
