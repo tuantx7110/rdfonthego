@@ -4,12 +4,40 @@
 
  This example shows you how to build a simple Android app with RDFOnthego.
 
-The source code is <a href='http://rdfonthego.googlecode.com/files/Example.rar'>here.<a>
+ The source code is <a href='http://rdfonthego.googlecode.com/files/Example.rar'>here.<a>
 
 
 = Details =
+ In this example, we used RDF store to store the foaf profile. Foaf profiles are converted to n-triples by sindice any23 api. To avoid type the URL,we are using QRCode scanner api. The QRCode generator plug-in for FireFog is easily found by google.com, and QRCode scanner for android at android market.
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+To get foaf id:
+
+scan.setOnClickListener(new Button.OnClickListener(){
+ @Override
+ 
+ public void onClick(View v){
+
+ Intent intent = new Intent("com.google.zxing.client.android.SCAN");
+
+ intent.putExtra("SCAN_MODE", "QR_CODE_MODE");
+
+ startActivityForResult(intent, 0);} 
+ });
+}
+	
+
+@Override
+
+public void onActivityResult(int requestCode, int resultCode, Intent intent){
+
+ super.onActivityResult(requestCode, resultCode,intent);
+
+ if (requestCode == 0){
+   if (resultCode == RESULT_OK){
+        foafURL = intent.getStringExtra("SCAN_RESULT");    
+        new AddContact(FoafCollector.this,foafURL).execute();
+   }else if (resultCode == RESULT_CANCELED){
+        foafURL =	null;
+   }
+}
+}
