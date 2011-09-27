@@ -55,7 +55,7 @@
 % unless you accept that it will be published
 \institute{Digital Enterprise Research Institute ,\\
 National University of Ireland Galway, Ireland \\
-%\url{http://www.springer.com/lncs}  
+%\url{http://www.springer.com/lncs}
 }
 % (feature abused for this document to repeat the title also on left hand pages)
 
@@ -85,12 +85,27 @@ contain at least 70 and at most 150 words. It should be written using the
 [Intro here]
 
 \subsection{Motivated Use cases}
+ PIM 
+ 
 
--Semantic Life
 
--Social network application
+ - Contact list management. 
+    + Contact list can be synchronize from social network
+    + Contact list can be convert from local phone contact
 
--Semantic desktop
+ The problem is how to match them together. This can be solve the issue how to detect the relationship between phone owner and his friend.
+
+Related material required.
+ 
+ - Calenda management
+ Not decide yet:
+  + birthay annotation, meeting annotation.
+
+ - Media annotation. 
+  + The use case idea can take from the RDF content provider. Build an interface which is able for user to annotate or tag to image.
+
+
+
 
 \section{Related work}
 
@@ -121,6 +136,8 @@ view about their personal data space, we need a mechanism for aligning/patching 
 
 -Explain how to align distributed data into single graph with : mapping rules, multi-layers graph.
  
+"ANH: I suggest the the mapping rule is a list of triples (A sameAs B) to connect 2 Node. We've decided how to use the SameAs reasoning to match them together."
+
 
 \section{Context-based information navigation}
 
@@ -133,24 +150,28 @@ view about their personal data space, we need a mechanism for aligning/patching 
 \section{System design and implementation}
 
 -Architecture : Wrappers(Facebook, twitter, Phone, linked in, etc) , data storage(phone triple storage), 
-ID-reasoner ( SameAs reasoner), content provider ( [Tuan Anh to draw the architecture and describe 
-component here])
+ID-reasoner ( SameAs reasoner).
+   
+ Linkedin wrapper is done. 
+ Facebook wrapper is done. 
+Later we need decide to get triple directly from the facebook graph api or use the wrapper.
+
 
 -System design
 
 -Implementation details
 	
-	+triple storage for mobile
+	+triple storage for mobile ~\cite{Furstenau:2009}
 	
 	+ Wrapper
-	
+  
 	+Query interfaces 
 
 \section{Demo and evaluation}
 
 -Describe demo and screen shot
 
--Some evaluations: Evaluation metrics : query response time vs size of data?????
+-Some evaluations: Evaluation metrics : query response time vs size of data.
 
 \section{Conclusion and future work}
 
