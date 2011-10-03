@@ -15,8 +15,9 @@
  //Create or open a store name "example" 
  graph	=	new BDBGraph("example");
 
- //Retrieve data after converted from any23 api of sindice.
- graph.load("http://api.sindice.com/any23/any23/?format=ntriples&uri="+contactFoaFid, contactFoaFid);
+ //Retrieve data after converted from any23 api.
+ 
+graph.load("http://api.sindice.com/any23/any23/?format=ntriples&uri="+contactFoaFid, contactFoaFid);
 
  //Save the graph
  
