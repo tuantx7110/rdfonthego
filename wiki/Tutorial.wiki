@@ -24,7 +24,11 @@
  RDFOnthego based on <a href='http://jena.sourceforge.net/'>Jena Semantic Web</a> framework, so that it works like Jena. If you are not familiar with Jena please take a look at <a href = 'http://jena.sourceforge.net/tutorial/RDF_API/index.html'> Jena Tutorial.</a>
  
 === 2.1 Create a Graph ===
- BDBGraph is extended class of <a href='http://jena.sourceforge.net/javadoc/com/hp/hpl/jena/graph/Graph.html'>Jena Graph interface</a>. It is used as a store handler with methods working with triples such as adding, deleting, saving. There are 2 ways to create a BDBGraph, using *Factory.createBDBGraph(storeName)* function or create a new graph by *new BDBGraph(storeName)*.
+ BDBGraph is extended class of <a href='http://jena.sourceforge.net/javadoc/com/hp/hpl/jena/graph/Graph.html'>Jena Graph interface</a>. It is used as a store handler with methods working with triples such as adding, deleting, saving. 
+There are 2 ways to create a BDBGraph, using 
+   {{{Factory.createBDBGraph(storeName)}}
+or
+   {{{new BDBGraph(storeName)}}}.
 
 === 2.2 Adding Triples ===
  There are 3 ways to add triple to graph(store): 
