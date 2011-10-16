@@ -47,5 +47,3 @@
 For more details please take a look at our example. How to build a simple android application with rdfonthego.
  
  
-
-
