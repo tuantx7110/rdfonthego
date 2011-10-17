@@ -181,9 +181,8 @@
     sol=itr.next();
     System.out.println(sol.get("lat").toString() + "===" + sol.get("long").toString() ); 
  }
+ qExec.close() ;
 }}}
-
- {{{qExec.close() ;}}}
     		
 === 2.4 Integrate with Lucene ARQ===
  LARQ is a combination of ARQ and Lucene. It gives ARQ the ability to perform free text searches. Lucene indexes are additional information for accessing the RDF graph, not storage for the graph itself. The example below shows how BDBGraph work with LARQ.
