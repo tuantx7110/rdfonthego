@@ -185,13 +185,8 @@
 
  {{{qExec.close() ;}}}
     		
-=== 2.4 Integrate with Lucene ===
-
- Lucene ARQ works well with BDBGraph.
-
- This example shows how to use Lucene index and query with LARQ.
-
- You can create String lucene index with store
+=== 2.4 Integrate with Lucene ARQ===
+ LARQ is a combination of ARQ and Lucene. It gives ARQ the ability to perform free text searches. Lucene indexes are additional information for accessing the RDF graph, not storage for the graph itself. The example below shows how BDBGraph work with LARQ.
 {{{ 
  String appFolder = androis.os.Environment.getExternalStorageDirector() + "/Androi/data/";
  
@@ -220,7 +215,6 @@
  "SELECT * {" ,
  "?lit pf:textMatch '+Anh'",
  "}");
-  
   
  //Index can be made globally avaiable 
  //LARQ.setDefaultIndex(index);
