@@ -234,7 +234,7 @@
 
  You can create String lucene index with store
 
- {{{String appFolder = androis.os.Environment.getExternalStorageDirector() + "/Androi/data/";}}
+ {{{String appFolder = androis.os.Environment.getExternalStorageDirector() + "/Androi/data/";}}}
 
  {{{IndexBuilderString larqBuilder = new IndexBuilderString(appFolder);}}}
 
