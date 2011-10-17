@@ -18,6 +18,7 @@
  graph.load("http://api.sindice.com/any23/any23/?format=ntriples&uri="+contactFoaFid, contactFoaFid);
  //Save the graph
   graph.sync();
+ }}}
 
  * Query name of the foafid 
  {{{
