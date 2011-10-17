@@ -190,14 +190,9 @@
 
  {{{bdbSM.flush();}}}
     		
- {{{List<String>	places =	i.getWithin(53.285029, -9.081154, 53.294469, -9.067422);}}}
-    			
- {{{for (int j = 0; j < places.size(); j++) { }}}
-  
- {{{System.out.println(i + " " + places.get(j).toString()); }}}
-
- {{{}}}}
-
+ {{{String QueryString="?uri spatial:within("+lat1+" "+lon1+" "+lat2+" "+lon2+"). " +}}}
+ {{{"?uri rdf:type ?type."+ }}}
+ {{{" OPTIONAL {?uri rdf:label ?label} => "+places.size()+" results";}}}						  
 
 For more details please take a look at our example. How to build a simple android application with rdfonthego.
  
