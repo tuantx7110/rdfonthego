@@ -1,31 +1,12 @@
 #summary This tutorial will explain how to use RDFonthego.
 
-= Introduction =
-
- RDF Onthego is project to build RDF store and query processor on Android phone.
- For more information: <a href='http://iswc2010.semanticweb.org/pdf/503.pdf'>RDF On the Go</a>
-
-==1. Setup project:==
- * Step 1:<a href='http://developer.android.com/sdk/installing.html'>Create a Android project.</a>
- RDFOnthego requires Android 2.1 or later version. And don't forget to add WRITE_EXTERNAL_STORAGE permission to your project.
-    
- * Step 2: Adding rdfonthego external jar file to your Android project
- 
-  - <a href='http://rdfonthego.googlecode.com/files/je-android-4.1.10.jar'>je-andoird-4.1.10.jar</a>. Berkeley DB JE for Android (Required!)
- 
-  - <a href='http://rdfonthego.googlecode.com/files/deri.org.rdfonthego.core.jar'>deri.org.rdfonthgo.core.jar</a> Jena SW toolkit with RDF store built in(Required!)
-
- - <a href='http://rdfonthego.googlecode.com/files/deri.org.rdfonthego.spatial.jar'>deri.org.rdfonthego.spatial.jar</a> (Optional!). The spatial indexing packages.
-
- - <a href='http://rdfonthego.googlecode.com/files/deri.org.rdfonthego.lucene.jar'>deri.org.rdfonthego.lucene.jar</a> (Optional!) The lucene packages.
-
-== 2. Working with RDFOnthego ==
+== Working with RDFOnthego ==
   
      RDFOnthego based on <a href='http://jena.sourceforge.net/'>Jena Semantic Web</a> framework, so that it works like Jena. If you are not familiar with Jena please take a look at <a href = 'http://jena.sourceforge.net/tutorial/RDF_API/index.html'> Jena Tutorial.</a>
  
-=== 2.1. BDBGraph ===
+== 1. BDBGraph ==
  BDBGraph is extended class of <a href='http://jena.sourceforge.net/javadoc/com/hp/hpl/jena/graph/Graph.html'>Jena Graph interface</a>. It is used as a store handler with methods working with triples such as adding, deleting, saving. 
-==== 2.1.1 Create a Graph ====
+=== 1.1 Create a Graph ===
 
  There are 2 ways to create a BDBGraph, using 
  
@@ -45,7 +26,7 @@
 
  *NOTE: Remember to close store when you finish your work by calling {{{graph.close()}}}. If store is not closed, it will take a long time when you open it again. 
 
-==== 2.1.2 Adding Triples ====
+=== 1.2 Adding Triples ===
  There are 3 ways to add triple to graph(store): 
  * Add a single triple to graph:
 
@@ -81,9 +62,9 @@
    {{{ graph.load(String url, String baseUri) }}}
 
  
-=== 2.2 Integrate with Jena===
+== 2 Integrate with Jena==
 
-==== 2.3.1 Model ====
+=== 2.1 Model ===
 
  The only thing is required to create a model for BDBGraph is the store name.
 
@@ -118,7 +99,7 @@
  {{{} }}}
 
 
-==== 2.3.2 Query with ARQ ====
+=== 2.2 Query with ARQ ===
  
  In Rdfonthego project, <a href='http://openjena.org/ARQ/app_api.html'>JENA ARQ api.</a> has been embedded with "SELECT queries" only.
 
@@ -166,7 +147,7 @@
 
  {{{}}}}
 
-==== 2.3.3 Integrate with Spatial====
+=== 2.3 Integrate with Spatial===
   
  The examples how to use the spatial index to work with Geo RDF.
 
@@ -226,7 +207,7 @@
 
  {{{qExec.close() ;}}}
     		
-==== 2.3.4 Integrate with Lucene ====
+=== 2.4 Integrate with Lucene ===
 
  Lucene ARQ works well with BDBGraph.
 
