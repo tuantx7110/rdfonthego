@@ -190,9 +190,43 @@
 
  {{{bdbSM.flush();}}}
     		
- {{{String QueryString="?uri spatial:within("+lat1+" "+lon1+" "+lat2+" "+lon2+"). " +}}}
- {{{"?uri rdf:type ?type."+ }}}
- {{{" OPTIONAL {?uri rdf:label ?label} => "+places.size()+" results";}}}						  
+ {{{String queryString = StrUtils.strjoin}}}
+
+ {{{("\n", }}}
+
+ {{{"PREFIX spatial: <java:org.geospatialweb.arqext.>",}}}
+
+ {{{"PREFIX geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>",}}}
+
+ {{{   			 "SELECT DISTINCT  ?lat ?long{" ,    }}}
+
+ {{{   			 "?uri geo:lat ?lat.",}}}
+
+ {{{   			 "?uri geo:long ?long.",}}}
+
+ {{{   			 "?s spatial:nearby(53.285029 -9.081154 10)",}}}
+
+ {{{   			 "}") ;}}}
+    
+ {{{ Query query = QueryFactory.create(queryString) ; }}}
+ 
+ {{{QuerySolution sol;}}}
+    			
+ {{{QueryExecution qExec = QueryExecutionFactory.create(query, model) ;}}}
+    
+ {{{Geo.setContext(qExec, i);}}}
+
+ {{{for(ResultSet itr    = qExec.execSelect();itr.hasNext();){}}}
+
+ {{{sol=itr.next();}}}
+   
+ {{{System.out.println(sol.get("lat").toString() + "===" + sol.get("long").toString() ); }}}
+
+ {{{}}}}
+
+ {{{qExec.close() ;}}}
+    		
+
 
 For more details please take a look at our example. How to build a simple android application with rdfonthego.
  
