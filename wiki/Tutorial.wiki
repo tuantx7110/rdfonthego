@@ -9,57 +9,61 @@
 === 1.1 Create a Graph ===
 
  There are 2 ways to create a BDBGraph, using 
+{{{ 
+ BDBGraph graph; 
+ String storeName = "Store"; 
  
-  {{{ BDBGraph graph; }}}
-
-  {{{ String storeName = "Store"; }}} 
-
-  {{{ graph = Factory.createBDBGraph(storeName); }}}
+ graph = Factory.createBDBGraph(storeName); 
+}}}
  
  Or:
-
-   {{{ BDBGraph graph;}}}  
-
-   {{{ String storeName = "store"}}} 
-
-   {{{ graph = new BDBGraph(storeName); }}}.
+{{{ 
+ BDBGraph graph;  
+ String storeName = "store";
+ 
+ graph = new BDBGraph(storeName); 
+}}}
 
  *NOTE: Remember to close store when you finish your work by calling {{{graph.close()}}}. If store is not closed, it will take a long time when you open it again. 
 
 === 1.2 Adding Triples ===
  There are 3 ways to add triple to graph(store): 
  * Add a single triple to graph:
+{{{  
+ Node s,p,o; 
+ Triple t;  
 
-  {{{  Node s,p,o; }}}
+ s = Node.createURI("http://example.org");
+ p = Node.createURI("http://xmlns.com/foaf/0.1/name");
+ o = Node.createLiteral("Anh Le Tuan");
 
-  {{{  Triple t;  }}}
+ t = new Triple (s,p,o);
 
-  {{{  s = Node.createURI("http://example.org"); }}}
-
-  {{{  p = Node.createURI("http://xmlns.com/foaf/0.1/name"); }}}
-
-  {{{  o = Node.createLiteral("Anh Le Tuan"); }}}
-
-  {{{  Triple t = new Triple (s,p,o);  }}}
-
-  {{{  graph.add(t); }}}
+ graph.add(t);
+ graph.sync();
+ graph.close();
+}}}
  
  * Load Triple from file:
-   
- {{{String filePath	= android.os.Environment.getExternalStorageDirectory()+ "/Android/data/foaf.n3"; }}}
-    
- {{{String baseUri = "http://www.deri.ie/fileadmin/scripts/foaf.php?id=532" }}} 
+{{{
+ String filePath	= android.os.Environment.getExternalStorageDirectory()+ "/Android/data/foaf.n3"; 
+ String baseUri = "http://www.deri.ie/fileadmin/scripts/foaf.php?id=532";
 
-  {{{ graph.load(String filePath, String baseUri) }}}
+ graph.load(String filePath, String baseUri) 
+ graph.sync();
+ graph.close();
+}}}
   
  * Load Triple from an URL
  BDBGraph only supports to RDF n-triple and n3 so others RDF formats must be converted to n-triples before being put to graph. In case of working with online URL, we suggest using any23.org api. 
-  
-   {{{String baseUri = "http://www.deri.ie/fileadmin/scripts/foaf.php?id=532"; }}}
-
-   {{{String url = "http://any23.org/nt/" + baseUri;}}}
-
-   {{{ graph.load(String url, String baseUri) }}}
+{{{
+ String baseUri = "http://www.deri.ie/fileadmin/scripts/foaf.php?id=532"; 
+ String url = "http://any23.org/nt/" + baseUri;}}}
+ 
+ graph.load(String url, String baseUri) 
+ graph.sync();
+ graph.close();
+}}}
 
  
 == 2 Integrate with Jena==
