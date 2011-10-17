@@ -116,14 +116,86 @@
  {{{Log.d("System.out", stmt.asTriple.toString());}}}
  
  {{{} }}}
-} 
 
 
+==== 2.3.2 Query with ARQ ====
  
+ In Rdfonthego project, <a href='http://openjena.org/ARQ/app_api.html'>JENA ARQ api.</a> has been embedded with "SELECT queries" only.
 
+ The example below shows how to use ARQ:
 
- Rdfonthego uses <a href='http://openjena.org/ARQ/app_api.html'>JENA ARQ api.</a> and we only supported to "SELECT queries" and n-triples format.
+ {{{//Open a store}}} 
 
+ {{{BDBGraph graph = new BDBGraph("store");}}}
+
+ {{{//Create the model}}}
+
+ {{{model = new ModelCom(graph);}}}
+
+ {{{// Create query String}}}
+ 
+ {{{String queryString = StrUtils.strjoin }}}
+
+ {{{ ("\n", }}}
+
+ {{{ "PREFIX foaf: <http://xmlns.com/foaf/0.1/>", }}}
+
+ {{{ "SELECT DISTINCT  ?name {" ,}}}
+  
+ {{{ ?uri foaf:name  ?name.", }}}
+
+ {{{ "}") ;}}}
+
+ {{{//Create a query }}}
+
+ {{{ Query query = QueryFactory.create(queryString) ; }}}
+
+ {{{ QuerySolution sol; }}}
+
+ {{{ QueryExecution qExec = QueryExecutionFactory.create(query, model) ; }}}
+
+ {{{ for(ResultSet itr    = qExec.execSelect();itr.hasNext();){ }}}
+
+ {{{ sol=itr.next(); }}}
+
+ {{{ Log.d("System.out", sol.get("name").toString()); }}}
+
+ {{{}}}}
+
+ {{{ qExec.close() ; }}}
+
+ {{{}}}}
+
+==== 2.3.3 Integrate with Spatial====
+  
+ The examples how to use the spatial index to work with Geo RDF.
+
+ {{{ BDBGraph graph	=	new BDBGraph("Map"); }}}
+
+ {{{ model	=	new ModelCom(graph); }}}
+    			
+ {{{ PropertySet ps2 = new PropertySet(); }}}
+
+ {{{ps2.setProperty("Dimension", 2);}}}
+
+ {{{BDBStorageManager	bdbSM = new BDBStorageManager();}}}
+ 
+ {{{RTree rtree;}}}
+    			
+ {{{rtree = new RTree(ps2, bdbSM);}}}
+
+ {{{Indexer i=	new Indexer(rtree);}}}
+    			
+ {{{i.createIndex(model);}}}
+
+ {{{bdbSM.flush();}}}
+    		
+ {{{List<String>	places =	i.getWithin(53.285029, -9.081154, 53.294469, -9.067422);}}}
+    			
+ {{{for (int j = 0; j < places.size(); j++){ }}}
+  
+ {{{System.out.println(i + " " + places.get(j).toString()); }}}}
+    			
 For more details please take a look at our example. How to build a simple android application with rdfonthego.
  
  
