@@ -226,6 +226,60 @@
 
  {{{qExec.close() ;}}}
     		
+==== 2.3.4 Integrate with Lucene ====
+
+ Lucene ARQ works well with BDBGraph.
+
+ This example shows how to use Lucene index and query with LARQ.
+
+ You can create String lucene index with store
+
+ {{{String appFolder = androis.os.Environment.getExternalStorageDirector() + "/Androi/data/";}}
+
+ {{{IndexBuilderString larqBuilder = new IndexBuilderString(appFolder);}}}
+
+ {{{BDBGraph graph = new BDBGraph(store);}}}
+
+ {{{Model model = new ModelCom(graph);}}}
+
+ {{{model.register(larqBuilder);}}}
+
+ {{{larq.indexStatements(model.listStatements());}}}
+
+ {{{larq.closeWrite();}}}
+
+ {{{IndexLARQ index = larqBuilder.getIndex();}}}
+
+ {{{String queryString = StrUtils.strjoin(}}}
+
+ {{{"\n",}}}
+
+ {{{"PREFIX pf: <http://jena.hpl.hp.com/ARQ/property#>",}}}
+
+ {{{"SELECT * {" ,}}}
+
+ {{{"    ?lit pf:textMatch '+Anh'",}}}
+
+ {{{"}");}}}
+				 
+ {{{Query query	=	QueryFactory.create(queryString);}}}
+    		
+ {{{QueryExecution qExec	=	QueryExecutionFactory.create(query, model);}}}
+
+ {{{LARQ.setDefaultIndex(qExec.getContext(),index);}}}
+    		
+ {{{QuerySolution sol;}}}
+
+ {{{for(ResultSet itr    = qExec.execSelect();itr.hasNext();){}}}
+
+ {{{sol=itr.next();}}}
+
+ {{{System.out.println(sol.get("lit").toString());}}}
+				
+ {{{}}}}
+    	
+ {{{qExec.close();}}}
+
 
 
 For more details please take a look at our example. How to build a simple android application with rdfonthego.
