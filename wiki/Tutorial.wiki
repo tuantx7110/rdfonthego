@@ -73,141 +73,115 @@
  The only thing is required to create a model for BDBGraph is the store name.
 
  The model can be create by:
-
- {{{Model model;}}}
-
- {{{String storeName = "store"; }}}
-
- {{{model = ModelFactory.creatModelStore("store");}}}
+{{{
+ Model model;
+ String storeName = "store";
+ 
+ model = ModelFactory.creatModelStore("store");
+}}}
 
  Or:
-  
- {{{BDBGraph graph = new BDBGraph(storeName);}}}
-
- {{{model = new ModelCom(graph);}}}
+{{{
+ BDBGraph graph = new BDBGraph(storeName);}}}
+ model = new ModelCom(graph);
+}}}
 
  And now we are able to see the statements we have in our store.
-
- {{{// list the statements in the Model}}}
-
- {{{StmtIterator iter = model.listStatements();}}}
-
- {{{// print out the predicate, subject and object of each statement}}}
-
- {{{while (iter.hasNext()) { }}}
-
- {{{Statement stmt      = iter.nextStatement();  // get next statement}}}
-
- {{{Log.d("System.out", stmt.asTriple.toString());}}}
- 
- {{{} }}}
-
+{{{
+ // list the statements in the Model
+ StmtIterator iter = model.listStatements();
+ // print out the predicate, subject and object of each statement
+ while (iter.hasNext()) { 
+   // get next statement
+    Statement stmt      = iter.nextStatement();  
+    Log.d("System.out", stmt.asTriple.toString());
+ } 
+}}}
 
 === 2.2 Query with ARQ ===
  
  In Rdfonthego project, <a href='http://openjena.org/ARQ/app_api.html'>JENA ARQ api.</a> has been embedded with "SELECT queries" only.
 
  The example below shows how to use ARQ:
+ {{{
+ //Open a store
+ BDBGraph graph = new BDBGraph("store");
 
- {{{//Open a store}}} 
+ //Create the model
+ model = new ModelCom(graph);
 
- {{{BDBGraph graph = new BDBGraph("store");}}}
+ //Create query String
+ String queryString = StrUtils.strjoin("\n", 
+ "PREFIX foaf: <http://xmlns.com/foaf/0.1/>",
+ "SELECT DISTINCT  ?name {" ,
+ "?uri foaf:name  ?name.", 
+ "}");
 
- {{{//Create the model}}}
+ //Create a query 
+ Query query = QueryFactory.create(queryString) ; 
+ //Create query execution
+ QueryExecution qExec = QueryExecutionFactory.create(query, model) ; 
 
- {{{model = new ModelCom(graph);}}}
-
- {{{// Create query String}}}
- 
- {{{String queryString = StrUtils.strjoin }}}
-
- {{{ ("\n", }}}
-
- {{{ "PREFIX foaf: <http://xmlns.com/foaf/0.1/>", }}}
-
- {{{ "SELECT DISTINCT  ?name {" ,}}}
-  
- {{{ ?uri foaf:name  ?name.", }}}
-
- {{{ "}") ;}}}
-
- {{{//Create a query }}}
-
- {{{ Query query = QueryFactory.create(queryString) ; }}}
-
- {{{ QuerySolution sol; }}}
-
- {{{ QueryExecution qExec = QueryExecutionFactory.create(query, model) ; }}}
-
- {{{ for(ResultSet itr    = qExec.execSelect();itr.hasNext();){ }}}
-
- {{{ sol=itr.next(); }}}
-
- {{{ Log.d("System.out", sol.get("name").toString()); }}}
-
- {{{}}}}
-
- {{{ qExec.close() ; }}}
-
- {{{}}}}
+ //Get the results
+ for(ResultSet itr    = qExec.execSelect();itr.hasNext();){ 
+     sol=itr.next(); 
+     Log.d("System.out", sol.get("name").toString()); 
+ }
+ qExec.close() ; 
+}}}
 
 === 2.3 Integrate with Spatial===
   
  The examples how to use the spatial index to work with Geo RDF.
-
- {{{ BDBGraph graph	=	new BDBGraph("Map"); }}}
-
- {{{ model	=	new ModelCom(graph); }}}
+ {{{ 
+ //Open the store
+ BDBGraph graph	=	new BDBGraph("Map");
+ //Create the model
+ Model    model	=	new ModelCom(graph); 
     			
- {{{ PropertySet ps2 = new PropertySet(); }}}
+ //Setup the dimension of RTree  
+ PropertySet ps2 = new PropertySet(); 
+ ps2.setProperty("Dimension", 2);
 
- {{{ps2.setProperty("Dimension", 2);}}}
-
- {{{BDBStorageManager	bdbSM = new BDBStorageManager();}}}
+ //BDBStoreManager is the handler of spatial index store
+ BDBStorageManager	bdbSM = new BDBStorageManager();
+ RTree rtree;
  
- {{{RTree rtree;}}}
-    			
- {{{rtree = new RTree(ps2, bdbSM);}}}
+ //Create Rtree with the handler
+ rtree = new RTree(ps2, bdbSM);
 
- {{{Indexer i=	new Indexer(rtree);}}}
-    			
- {{{i.createIndex(model);}}}
+ Indexer i=	new Indexer(rtree);
+ //Indexing
+ i.createIndex(model);
 
- {{{bdbSM.flush();}}}
-    		
- {{{String queryString = StrUtils.strjoin}}}
-
- {{{("\n", }}}
-
- {{{"PREFIX spatial: <java:org.geospatialweb.arqext.>",}}}
-
- {{{"PREFIX geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>",}}}
-
- {{{   			 "SELECT DISTINCT  ?lat ?long{" ,    }}}
-
- {{{   			 "?uri geo:lat ?lat.",}}}
-
- {{{   			 "?uri geo:long ?long.",}}}
-
- {{{   			 "?s spatial:nearby(53.285029 -9.081154 10)",}}}
-
- {{{   			 "}") ;}}}
+ //Save the index
+ bdbSM.flush();
+    	
+ //Nearby query	String
+ String queryString = StrUtils.strjoin
+ ("\n",
+  "PREFIX spatial: <java:org.geospatialweb.arqext.>",
+  "PREFIX geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>",
+  "SELECT DISTINCT  ?lat ?long{" ,    
+  "?uri geo:lat ?lat.",
+  "?uri geo:long ?long.",
+  "?s spatial:nearby(53.285029 -9.081154 10)",
+  "}") ;
     
- {{{ Query query = QueryFactory.create(queryString) ; }}}
+ Query query = QueryFactory.create(queryString) ; 
+ QuerySolution sol;
+    			
+ QueryExecution qExec = QueryExecutionFactory.create(query, model) ;
  
- {{{QuerySolution sol;}}}
-    			
- {{{QueryExecution qExec = QueryExecutionFactory.create(query, model) ;}}}
-    
- {{{Geo.setContext(qExec, i);}}}
+ //Apply index to the queryExecution   
+ Geo.setContext(qExec, i);
 
- {{{for(ResultSet itr    = qExec.execSelect();itr.hasNext();){}}}
-
- {{{sol=itr.next();}}}
-   
- {{{System.out.println(sol.get("lat").toString() + "===" + sol.get("long").toString() ); }}}
-
- {{{}}}}
+ //Getting the result
+ for(ResultSet itr    = qExec.execSelect();itr.hasNext();){
+    sol=itr.next();
+    System.out.println(sol.get("lat").toString() + "===" + sol.get("long").toString() ); 
+ }
+}}}
 
  {{{qExec.close() ;}}}
     		
@@ -218,52 +192,53 @@
  This example shows how to use Lucene index and query with LARQ.
 
  You can create String lucene index with store
+{{{ 
+ String appFolder = androis.os.Environment.getExternalStorageDirector() + "/Androi/data/";
+ 
+ //Open store
+ BDBGraph graph = new BDBGraph("store");
+ //Create model
+ Model model = new ModelCom(graph);
 
- {{{String appFolder = androis.os.Environment.getExternalStorageDirector() + "/Androi/data/";}}}
+ //Create the Indexbuilder
+ //IndexBuilderString: This is the most commonly used index builder,and uses for indexing plain literals.
+ //IndexBuilderSubject: Index the subject resource by a string literal, an store the subject resource, possibly restricted by a specified property
+ IndexBuilderString larqBuilder = new IndexBuilderString(appFolder);
 
- {{{IndexBuilderString larqBuilder = new IndexBuilderString(appFolder);}}}
+ //Create index based on existing statements
+ larq.indexStatements(model.listStatements());
+ //finish index
+ larq.closeWrite();
 
- {{{BDBGraph graph = new BDBGraph(store);}}}
+ //Create the access index
+ IndexLARQ index = larqBuilder.getIndex();
 
- {{{Model model = new ModelCom(graph);}}}
+ //Query with luncene index
+ String queryString = StrUtils.strjoin(
+ "\n",
+ "PREFIX pf: <http://jena.hpl.hp.com/ARQ/property#>",
+ "SELECT * {" ,
+ "?lit pf:textMatch '+Anh'",
+ "}");
+  
+  
+ //Index can be made globally avaiable 
+ //LARQ.setDefaultIndex(index);
+ //Or set on a single query execution
+ Query query	        =	QueryFactory.create(queryString);
+ QueryExecution qExec	=	QueryExecutionFactory.create(query, model);
+ LARQ.setDefaultIndex(qExec.getContext(),index);
 
- {{{model.register(larqBuilder);}}}
+ QuerySolution sol;
 
- {{{larq.indexStatements(model.listStatements());}}}
-
- {{{larq.closeWrite();}}}
-
- {{{IndexLARQ index = larqBuilder.getIndex();}}}
-
- {{{String queryString = StrUtils.strjoin(}}}
-
- {{{"\n",}}}
-
- {{{"PREFIX pf: <http://jena.hpl.hp.com/ARQ/property#>",}}}
-
- {{{"SELECT * {" ,}}}
-
- {{{"    ?lit pf:textMatch '+Anh'",}}}
-
- {{{"}");}}}
-				 
- {{{Query query	=	QueryFactory.create(queryString);}}}
-    		
- {{{QueryExecution qExec	=	QueryExecutionFactory.create(query, model);}}}
-
- {{{LARQ.setDefaultIndex(qExec.getContext(),index);}}}
-    		
- {{{QuerySolution sol;}}}
-
- {{{for(ResultSet itr    = qExec.execSelect();itr.hasNext();){}}}
-
- {{{sol=itr.next();}}}
-
- {{{System.out.println(sol.get("lit").toString());}}}
-				
- {{{}}}}
-    	
- {{{qExec.close();}}}
+ //Get the results
+ for(ResultSet itr    = qExec.execSelect();itr.hasNext();){
+     sol=itr.next();
+     System.out.println(sol.get("lit").toString());
+ }
+   	
+ qExec.close();
+}}}
 
 
 
