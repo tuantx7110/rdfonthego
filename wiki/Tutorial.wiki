@@ -21,31 +21,70 @@
 
 ==2. Working with RDFOnthego ==
   
- RDFOnthego based on <a href='http://jena.sourceforge.net/'>Jena Semantic Web</a> framework, so that it works like Jena. If you are not familiar with Jena please take a look at <a href = 'http://jena.sourceforge.net/tutorial/RDF_API/index.html'> Jena Tutorial.</a>
+     RDFOnthego based on <a href='http://jena.sourceforge.net/'>Jena Semantic Web</a> framework, so that it works like Jena. If you are not familiar with Jena please take a look at <a href = 'http://jena.sourceforge.net/tutorial/RDF_API/index.html'> Jena Tutorial.</a>
  
 === 2.1 Create a Graph ===
  BDBGraph is extended class of <a href='http://jena.sourceforge.net/javadoc/com/hp/hpl/jena/graph/Graph.html'>Jena Graph interface</a>. It is used as a store handler with methods working with triples such as adding, deleting, saving. 
-There are 2 ways to create a BDBGraph, using 
-   {{{Factory.createBDBGraph(storeName)}}
-or
-   {{{new BDBGraph(storeName)}}}.
+ There are 2 ways to create a BDBGraph, using 
+ 
+  {{{ BDBGraph graph; }}}
+
+  {{{ String storeName = "Store"; }}} 
+
+  {{{ graph = Factory.createBDBGraph(storeName); }}}
+ 
+ Or:
+
+   {{{ BDBGraph graph;}}}  
+
+   {{{ String storeName = "store"}}} 
+
+   {{{ graph = new BDBGraph(storeName); }}}.
+
+ *NOTE: Remember to close store when you finish your work by calling {{{graph.close()}}}. If store is not closed, it will take a long time when you open it again. 
 
 === 2.2 Adding Triples ===
  There are 3 ways to add triple to graph(store): 
  * Add a single triple to graph:
-    Node s,p,o;
-    Triple = new Triple (s,p,o);
-    graph.add(t); 
+
+  {{{  Node s,p,o; }}}
+
+  {{{  Triple t;  }}}
+
+  {{{  s = Node.createURI("http://example.org"); }}}
+
+  {{{  p = Node.createURI("http://xmlns.com/foaf/0.1/name"); }}}
+
+  {{{  o = Node.createLiteral("Anh Le Tuan"); }}}
+
+  {{{  Triple t = new Triple (s,p,o);  }}}
+
+  {{{  graph.add(t); }}}
  
  * Load Triple from file:
-      graph.load(String filePath, String baseUri)
+   
+ {{{String filePath	= android.os.Environment.getExternalStorageDirectory()+ "/Android/data/foaf.n3"; }}}
+    
+ {{{String baseUri = "http://www.deri.ie/fileadmin/scripts/foaf.php?id=532" }}} 
+
+  {{{ graph.load(String filePath, String baseUri) }}}
   
  * Load Triple from an URL
-      graph.load(String url, String baseUri)
+ BDBGraph only supports to RDF n-triple so others RDF formats must be converted to n-triples before being put to graph. In case of working with online URL, we suggest using any23.org api. 
+  
+   {{{String baseUri = "http://www.deri.ie/fileadmin/scripts/foaf.php?id=532"; }}}
 
-*NOTE: We only support for RDF n-triples. You must convert every others RDF format to n-triples first and then put them to your graph.
+   {{{String url = "http://any23.org/nt/" + baseUri;}}}
+
+   {{{ graph.load(String url, String baseUri) }}}
+
  
-=== 2.3 Query ===
+=== 2.3 Integrate with Jena===
+
+==== 2.3.1 Model ====
+
+
+
  Rdfonthego uses <a href='http://openjena.org/ARQ/app_api.html'>JENA ARQ api.</a> and we only supported to "SELECT queries" and n-triples format.
 
 For more details please take a look at our example. How to build a simple android application with rdfonthego.
