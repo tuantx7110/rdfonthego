@@ -19,12 +19,14 @@
 
  - <a href='http://rdfonthego.googlecode.com/files/lucene-core-2.3.1.jar'>lucene-core-2.3.1.jar</a> and <a href='http://rdfonthego.googlecode.com/files/deri.org.rdfonthego.lucene.jar'>deri.org.rdfonthego.lucene.jar</a> (Optional!) The lucene packages.
 
-==2. Working with RDFOnthego ==
+== 2. Working with RDFOnthego ==
   
      RDFOnthego based on <a href='http://jena.sourceforge.net/'>Jena Semantic Web</a> framework, so that it works like Jena. If you are not familiar with Jena please take a look at <a href = 'http://jena.sourceforge.net/tutorial/RDF_API/index.html'> Jena Tutorial.</a>
  
-=== 2.1 Create a Graph ===
+=== 2.1. BDBGraph ===
  BDBGraph is extended class of <a href='http://jena.sourceforge.net/javadoc/com/hp/hpl/jena/graph/Graph.html'>Jena Graph interface</a>. It is used as a store handler with methods working with triples such as adding, deleting, saving. 
+==== 2.1.1 Create a Graph ====
+
  There are 2 ways to create a BDBGraph, using 
  
   {{{ BDBGraph graph; }}}
@@ -43,7 +45,7 @@
 
  *NOTE: Remember to close store when you finish your work by calling {{{graph.close()}}}. If store is not closed, it will take a long time when you open it again. 
 
-=== 2.2 Adding Triples ===
+==== 2.1.2 Adding Triples ====
  There are 3 ways to add triple to graph(store): 
  * Add a single triple to graph:
 
@@ -70,7 +72,7 @@
   {{{ graph.load(String filePath, String baseUri) }}}
   
  * Load Triple from an URL
- BDBGraph only supports to RDF n-triple so others RDF formats must be converted to n-triples before being put to graph. In case of working with online URL, we suggest using any23.org api. 
+ BDBGraph only supports to RDF n-triple and n3 so others RDF formats must be converted to n-triples before being put to graph. In case of working with online URL, we suggest using any23.org api. 
   
    {{{String baseUri = "http://www.deri.ie/fileadmin/scripts/foaf.php?id=532"; }}}
 
@@ -79,10 +81,45 @@
    {{{ graph.load(String url, String baseUri) }}}
 
  
-=== 2.3 Integrate with Jena===
+=== 2.2 Integrate with Jena===
 
 ==== 2.3.1 Model ====
 
+ The only thing is required to create a model for BDBGraph is the store name.
+
+ The model can be create by:
+
+ {{{Model model;}}}
+
+ {{{String storeName = "store"; }}}
+
+ {{{model = ModelFactory.creatModelStore("store");}}}
+
+ Or:
+  
+ {{{BDBGraph graph = new BDBGraph(storeName);}}}
+
+ {{{model = new ModelCom(graph);}}}
+
+ And now we are able to see the statements we have in our store.
+
+ {{{// list the statements in the Model}}}
+
+ {{{StmtIterator iter = model.listStatements();}}}
+
+ {{{// print out the predicate, subject and object of each statement}}}
+
+ {{{while (iter.hasNext()) { }}}
+
+ {{{Statement stmt      = iter.nextStatement();  // get next statement}}}
+
+ {{{Log.d("System.out", stmt.asTriple.toString());}}}
+ 
+ {{{} }}}
+} 
+
+
+ 
 
 
  Rdfonthego uses <a href='http://openjena.org/ARQ/app_api.html'>JENA ARQ api.</a> and we only supported to "SELECT queries" and n-triples format.
