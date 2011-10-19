@@ -24,7 +24,7 @@
  graph = new BDBGraph(storeName); 
 }}}
 
- *NOTE: Remember to close store when you finish your work by calling {{{graph.close()}}}. If store is not closed, it will take a long time when you open it again. 
+ _*NOTE*_ : Remember to close store when you finish your work by calling {{{graph.close()}}}. If store is not closed, it will take a long time when you open it again. 
 
 === 1.2 Adding Triples ===
  There are 3 ways to add triple to graph(store): 
