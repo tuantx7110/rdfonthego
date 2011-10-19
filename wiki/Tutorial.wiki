@@ -6,9 +6,9 @@
  
 == 1. BDBGraph ==
  BDBGraph is extended class of <a href='http://jena.sourceforge.net/javadoc/com/hp/hpl/jena/graph/Graph.html'>Jena Graph interface</a>. It is used as a store handler with methods working with triples such as adding, deleting, saving. 
-=== 1.1 Create a Graph ===
+=== 1.1 Create a Store ===
 
- There are 2 ways to create a BDBGraph, using 
+ Store can be handled by the BDBGraph class. The example below shows 2 ways to create a store with its name.
 {{{ 
  BDBGraph graph; 
  String storeName = "Store"; 
@@ -24,11 +24,11 @@
  graph = new BDBGraph(storeName); 
 }}}
 
- _*NOTE*_ : Remember to close store when you finish your work by calling {{{graph.close()}}}. If store is not closed, it will take a long time when you open it again. 
+ _*NOTE*_ : Remember to close store when you finish your work by calling {{{graph.close()}}}. If store is not closed, it will take time when you open it again. 
 
 === 1.2 Adding Triples ===
- There are 3 ways to add triple to graph(store): 
- * Add a single triple to graph:
+ With created store, triples can be added as single triple, or can be loaded from text file, and can be downloaded from an URL.
+ * Add a single triple to store:
 {{{  
  Node s,p,o; 
  Triple t;  
@@ -55,7 +55,7 @@
 }}}
   
  * Load Triple from an URL
- BDBGraph only supports to RDF n-triple and n3 so others RDF formats must be converted to n-triples before being put to graph. In case of working with online URL, we suggest using any23.org api. 
+ BDBGraph only supports to RDF n-triple and n3 so others RDF formats must be converted to n-triples before being put to graph. In case of retrieving form and URL, we suggested using any23.org api to convert to n-triple to effect the system.  
 {{{
  String baseUri = "http://www.deri.ie/fileadmin/scripts/foaf.php?id=532"; 
  String url = "http://any23.org/nt/" + baseUri;}}}
@@ -70,7 +70,7 @@
 
 === 2.1 Model ===
 
- The only thing is required to create a model for BDBGraph is the store name.
+ The only thing is required to create a model from BDBGraph is the store name.
 
  The model can be create by:
 {{{
