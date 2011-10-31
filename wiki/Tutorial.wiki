@@ -12,7 +12,7 @@
 
  - <a href='http://rdfonthego.googlecode.com/files/deri.org.rdfonthego.spatial.jar'>deri.org.rdfonthego.spatial.jar</a> (Optional!). The spatial indexing packages.
 
- - <a href='http://rdfonthego.googlecode.com/files/deri.org.rdfonthego.lucene.jar'>deri.org.rdfonthego.lucene.jar</a> (Optional!) The lucene packages.
+ - <a href='http://rdfonthego.googlecode.com/files/deri.org.rdfonthego.lucene.jar'>deri.org.rdfonthego.lucene.jar</a> (Optional!) The Lucene packages.
 == Working with RDFOnthego ==
   
      RDFOnthego based on <a href='http://jena.sourceforge.net/'>Jena Semantic Web</a> framework, so that it works like Jena. If you are not familiar with Jena please take a look at <a href = 'http://jena.sourceforge.net/tutorial/RDF_API/index.html'> Jena Tutorial.</a>
