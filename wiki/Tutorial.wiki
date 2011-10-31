@@ -2,9 +2,9 @@
 
 == Setup project: ==
  * Step 1:<a href='http://developer.android.com/sdk/installing.html'>Create a Android project.</a>
- RDFOnthego requires Android 2.1 or later version. And don't forget to add WRITE_EXTERNAL_STORAGE permission to your project.
+ RDFOnthego requires Android 2.1 or later version. In order to enable the project to write to external storage like SD card, WRITE_EXTERNAL_STORAGE permission has to be added.
     
- * Step 2: Adding rdfonthego external jar file to your Android project
+ * Step 2: Adding rdfonthego jar files to your Android project
  
   - <a href='http://rdfonthego.googlecode.com/files/je-android-4.1.10.jar'>je-andoird-4.1.10.jar</a>. Berkeley DB JE for Android (Required!)
  
