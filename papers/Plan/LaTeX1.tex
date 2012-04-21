@@ -1,0 +1,67 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage[a4paper, inner=1.5cm, outer =3cm, top=2cm, bottom=3cm]{geometry}
+\usepackage[demo]{graphicx}
+
+%Commands
+\newcommand{\head}[1]{\textnormal {\textbf{#1}}}
+
+\begin{document}
+
+\title{Plan for implenmentation of wireless sensor network in DERI building}
+\maketitle
+\section{Description of work}
+In this work, we aim to implement a wireless network sensor(WNS) for a smart office and we use DERI building as an object to do the experiments. The WNS consists of physical sensor nodes to collect enviromental data, actuator nodes for automatic controlling such as light switching, door locking ... etc.  Each node should able to communicate with thier base station via wireless technologies such as wifi, zigbee..ect. A Central Unit is used as a sensitive data storage, data analyser to predict the status of the room and to  issue command to the actuator nodes. Users are able to communicate with the system via application built and installed on thier mobile devices. In the next sections we discuss about realistic scenario, available technology, system design, and evaluation result.
+\section{Scenarios}
+\subsection{Looking for parking place}
+ When a Derian drives his car to IDA Bussiness Park's gate, the first thing he does is to look for a parking place. When his phone has connected to DERI wifi, a parking map shows with avaiable slot for him.The application is also able to record his usual spot and remind him if it is avaiable.
+\subsection{Guide the visitor}
+ A visistor is comming intoDERI building, he open his cell phone and connect to the DERI network. A mobile application will atomatically install to his cell phone and asking what he want to do. 
+ If the visitor wants to meet some one in DERI, the system will notificate his host to arrange the place for the meeting then guide him to his meeting.\\
+ If the visitor is comming to a meeting is hosted by DERI. The system will show him a list of meeting are or going to take place. He is able to pick the meeting then application will guide him to the conference room booked for this meeting.
+\subsection{Notifications}
+ System will issue diiferent notifications to remind people about the working enviroment in the room if it might affect thier health or concentration.
+\subsection{Discussions}
+ More scenarios have to be depicted.
+\section{Equipment}
+\subsection{Sensor nodes}
+\begin{tabular}{|p{2.5cm}|c|p{2cm}|c|c|c|p{2.5cm}|}
+\hline
+\head{Name} & \head{Controller} & \head{Tranceiver} & \head{RAM} & \head{Storage} &\head{Programmable} &\head{Remarks}\\
+\hline
+{Sunspot} & {ARM 920T} & {802.15.4} & {512K} & {4MB flash} & {Java } & {Squawk Java ME Virtual Machine} \\
+\hline
+{Mica2} & {Atemega 128L} & {Chipcon 868/916 MHz}& {4k} & {128k Flash} & {No?} & {TinyOS, SOS, MantisOS support} \\
+\hline
+{Tmote-Sky, Tmote-invent} & {MSP430} & {250 kbit/s 2.4 GHz IEEE 802.15.4 Chipcon Wireless Transceiver} & {10k} & {48k Flash} & {No?} & {Contiki, TinyOS, SOS, MantisOS Support}\\
+\hline
+{RFID tags} &{}&{}&{}&{}&{}&{}\\
+\hline
+\end{tabular}
+
+\subsection{Gateway sensor nodes}
+
+\begin{tabular}{|p{2.5cm}|c|p{2cm}|c|c|c|}
+\hline
+\head{Name} & \head{Controller} & \head{Tranceiver} & \head{RAM} & \head{Storage} &\head{Interface}\\
+\hline
+{} &{}&{}&{}&{}&{}\\
+\hline
+\end{tabular}
+
+\section{Setup}
+\subsection{Sensor node distribution}
+%Senosr nodes : Report current status ...\\
+%Actuator nodes: control nodes () \\
+%Central control unit: Coordinates different subsystems (actuator/sensors)\\
+Sensor nodes are placed around the room to collect the data. The distribution of the sensor nodes depend on the scheme of the room. \\
+In one room will place 1-2 base station which are directly connected to the Central Control Unit (Coordinate). This coordinate takes the reponsibility to communicate to moblie divice to answer the data query or listen to the request then issue the notifications for users or commands to the actuator nodes.
+\subsection{System Design}
+Some pictures
+\section{Background Knowledge}
+Networking will be immplemented in JAVA base on JAVA JNI and PECES\\
+BASE - A Micro brokerbased is required as basic knowledge to implement the work.
+\section{Test Field}
+\subsection{Testing with data collection}
+\subsection{Testring with system decision}
+\subsection{Testing with notification and command}
+\end{document}
