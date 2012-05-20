@@ -1,4 +1,9 @@
-\documentclass[a4paper, 12pt]{article}
+\documentclass[a4paper]{llncs}
+
+\usepackage{amssymb}
+
+\usepackage{url}
+
 \usepackage[a4paper, inner=1.5cm, outer =3cm, top=2cm, bottom=3cm]{geometry}
 \usepackage[demo]{graphicx}
 
@@ -7,52 +12,100 @@
 
 \begin{document}
 
-\title{Plan for implementation of wireless sensor network in DERI building}
+\title{Plan for implementation of smart office in DERI building}
 \maketitle
 \section{Description of work}
-In this work, we aim to implement a wireless network sensor(WNS) for a smart office and we use DERI building as an object to do the experiments. The WNS consists of physical sensor nodes to collect environmental data, actuator nodes for automatic controlling such as light switching, door locking ... etc.  Each node should able to communicate with their base station via wireless technologies such as wifi, zigbee..ect. A Central Unit is used as a sensitive data storage, data analyser to predict the status of the room and to  issue command to the actuator nodes. Users are able to communicate with the system via application built and installed on their mobile devices. In the next sections we discuss about realistic scenario, available technology, system design, and evaluation result.
+We are trying to build a small smart space in DERI, which helps people easier to communicate with each others and with the building.There are two main aims we are trying to implement in this project:\\
+1) To build a small smart environment where devices are able to communicate each other such as mobile phone with mobile phone, mobile phones with laptops, mobile phone with sensor wireless network.\\
+2) Integrate data from sensor network with some services in DERI to build some smart services with could be helpful for people in DERI.\\
 
-%*** Be careful with grammar and wording
+On the technique side the project can show how the devices can communicate each other, how to build a small sensor network, and how to using sensor network data to do some smart services for office.
 
 \section{Scenarios}
-\subsection{Looking for parking place}
- When a Derians drives his car to IDA business Park's gate, the first thing he does is to look for a parking place. When his phone has connected to DERI wifi, a parking map shows with available slot for him.The application is also able to record his usual spot and remind him if it is available.
+According to this survey~\cite{survey:2010} the scenarios can be categorized into next categories:
 
-*** Is it feasible to do this with DERI parking slot?\\
-It could be really fancy if we could have done something like that. I think we could. I will look for the device and report later.\\
+\subsection{Communication}
+\subsubsection{A2.Asynchronous communication: }
+Danh and I have an appointment in DERI and then go to west wood together for breakfast. But he leaves a bit earlier. He left a message for me on the system. When first reach to DERI, my phone will connect to wireless system and i will get this message. Then i can go straight to West Wood to meet him.\\
+(But he can call me or left me a sms???)
+\subsection{Interaction}
+\subsubsection{B3.Automatic Device Configuration:}
+With application installed on the phone, users are able to control the infrastructures in the building such as  to switch the light,heater, air condition, or further more users can print documents from the phone as well.
+\subsection{Information}
+\subsubsection{C2.Easy Data Transfer: }
+A service with help 2 android devices easier file transfer. (Mobile <-> laptop) 
+\subsubsection{C3.Access}
+Smart poster: when users stay near the poster. The phone will show the profile of the auto. (Near by sensor or QR code scanner). We can also deploy this system for the computer history museum.
+\subsection{Adaptation}
+\subsubsection{D1. Personalization of Devices}
+People could be identified by their personal devices such as mobile phone, laptop. When Danh is coming to DERI, the big screen in the ground floor will send a welcome message. After that the screen will turn to the list of people who are in DERI at this moment. And if Danh is hosting a meeting in DERI, a notification will be sent to his coordinators and let them know that he is here. And the meeting could be start in couple of minutes.\\
+The system could help people easier to communicate each other. Danh is looking for Manfred, he could check if Manfred is in his room and available for him to talk. Or Danh is busy at this moment with a  meeting, or he want to focus on his work and he doesn't want people disturb him. He can turn over his phone, then his name will be remove in the available list.\\
+\subsection{Personal Assistance}
+\subsubsection{E3.Navigation and orientation}
+With the supports of the system, the users can find themselves where they are in the building. And they also can ask the system for guiding them to the room he want to go.\\
+The system can also help people find each others by integrating with D1, and DERI check-in system.
+\subsubsection{E4.Personal Reminder}
+Sometime, it would be very awkward for Marcel to arrange a football match. He has to write so many emails to collect people. With the smart reminder service, he only need to create a "call for football" notification. This notification will be sent to every personal devices of people in DERI to let them know. If they want to go, they just put the attends button and this appointment will be automatically added to their personal calendar. Number of attendances will be updated immediately once when a new agreement has been submitted.Then Marcel will easier to know how many people will be in this event and make the last decision. It also work with noticing reading group or invited talk.
+\subsubsection{E5.Recommendation}
+A phone version of DERI helpdesk. 
+\subsection{Office Management}
+\subsubsection{F1. Facility Management}
+It would be more comfortable if you could book for a meeting room from your phone than via the outlook. When once you ask for booking meeting room, a list of available schedule will be display in your screen. You're able to pick the room and add other people to the attend list. The system give notifications to your partners to let them know where and when the meeting will take place.\\
+If a meeting is taking place, the system will notify the host 5 mins before the end of the booking time for asking him if the room is still available to extend the time or let he know that someone booked the room after his. In the situation that the room was booked next to his meeting and there is another room available, he can ask the system to deal with the other host if he could move his meeting to another room. The next host can accept or deny the deal.\\
+If someone is using meeting room without booking, the system will ask them to book or notify them to leave in 5 minutes before the room will be taken for a meeting.
+\subsection{The factors of improving the scenarios}
+\subsubsection{From the guess side}
+What can this system help  people who are visiting DERI
+ \subsubsection{From Derian side}
+What can this system help the Derians.
+\subsubsection{Automatic decision room}
 
-\subsection{Guide the visitor}
-A visitor is coming into DERI building, he open his cell phone and connect to the DERI network. A mobile application will automatically install to his cell phone and asking what he want to do.If the visitor wants to meet some one in DERI, the system will notify his host to arrange the place for the meeting then guide him to his meeting.\\
+\section{Working plan}
+\subsection{Week 1}
+\head{System overview, basic knowledge preparation, scenarios discuss }\\
+Basic knowledge of smart space, smart building, smart office and DERI office services.\\
+Discussing about the scenarios.\\
+Searching for available supporting document.\\
+\head{Output: } Understanding about the DERI building, supporting services. Most potential scenarios should be selected and improved.
+\subsection{Week 2}
+\head{System architecture design}\\
+The architecture of the whole system should be divide into:\\
+- sensors wireless network architecture\\
+- data integrating architecture\\
+- network architecture\\
+List the equipment we probably need.\\
+\head{Output:} A designed architecture of the system.
+\subsection{Week 3} 
+\head{Sensor wireless network implementation}\\
+Set up SDK for device\\
+Sensor node capabilities testing in practise.\\
+\head{Output:} Understanding sensor nodes capabilities. Installed SDK for next step.
+\subsection{Week 4 - 5}
+\head{Sensor wireless network data collection implementation}\\
+Sensor nodes synchronization implementation.\\
+Sensitive data collecting test\\
+\head{Output} First version of wireless sensor network.
+\subsection{Week 6}
+\head{Evaluation}\\
+Short work report\\
+System gap, system issue, wireless sensor network evaluation. ...e.t.c\\
+\head{Output} Unexpected issues.
+\subsection{Week 7}
+\head{Unexpected issues}\\
+Set up sensor network in DERI building.\\
+Test for a ability of data collecting of the system.\\
+\head{Output}Completed Wireless Sensor Network.
+\subsection{Week 8 - 11}
+\head{Build the demonstrating applications}\\
+- build applications demo for the scenario.
+\head{Output: }  Demo application.
+\subsection{Week 12}
+\head{Work report}\\
+A short work report and short evaluation of the system.\\
+\head{Out put: } System report.
 
-If the visitor is coming to a meeting is hosted by DERI. The system will show him a list of meeting are or going to take place. He is able to pick the meeting then application will guide him to the conference room booked for this meeting.\\
- 
-% is it possible to use computing services in DERI? 
+\section{Help:}
 
-In some airports, when you turn on your phone we could receive a message to notify bla bla bla  with a link to their internet web page.I think we could use the same method to give visitor the link to download and install app to their phone. 
- 
-\subsection{Notifications}
- System will issue different notifications to remind people about the working environment the room if it might affect their health or concentration.
- 
-% ***How to collect data to decide when to notify? it must be complicated process and needs domain expertise?
-Yes, it's complicated. But let's touch the difficulty we always have chances to turn left when nothing is right !!!!
- 
-\subsection{Discussions}
- More scenarios have to be depicted.
- 
- 
- ***Sensors to more fine-grain contexts, for instance , noise-level $\to$ not in the office, RFID + calendar $\to$ in the meeting room with some one...\\
-
-I agree....with the actuator node. We can do something more than that....sometime people left with out turn off light especially in the toilet ...we are here turning off the light for saving DERI's money (Barney's voice :D)!!!
- 
- *** Visualizations : how to visualize such context data to the office and mobile apps ( be aware of limited screen size of mobile phone and it might be more convenient to use small dash board device like digital watch?\\
-
-Ha ha ... you really want to get this watch ... i know. Of cause the watches are really needed for the 2nd  scenario. How can the system remind the someone that he has visitor. He could be not in his desk, not with his phone but his watch always at this hand.
-
-
-*** Deploying and collecting data will cost some effort to know how the devices work, the quality of data, what  you do with them, and how to integrate them to build useful apps. \\
-
- 
-\section{Equipment}
 \subsection{Sensor nodes}
 \begin{tabular}{|p{2.5cm}|c|p{2cm}|c|c|c|p{2.5cm}|}
 \hline
@@ -78,64 +131,123 @@ Ha ha ... you really want to get this watch ... i know. Of cause the watches are
 \hline
 \end{tabular}
 
-\section{Set up}
-\subsection{Sensor node distribution}
+\subsection{Basic Background Knowledge}
+Networking will be implemented in JAVA base on JAVA JNI and PECES\\
+BASE - A Micro broker-based is required as basic knowledge to implement the work.
+
+\subsection{Available service in DERI}
+- Meeting booking system.\\
+- Room check-in system. (where.deri.ie)
+
+
+%\section{Set up}
+%\subsection{Sensor node distribution}
 %Senosr nodes : Report current status ...\\
 %Actuator nodes: control nodes () \\
 %Central control unit: Coordinates different subsystems (actuator/sensors)\\
-Sensor nodes are placed around the room to collect the data. The distribution of the sensor nodes depend on the scheme of the room. \\
-In one room will place 1-2 base station which are directly connected to the Central Control Unit (Coordinate). This coordinate takes the responsibility to communicate to mobile device to answer the data query or listen to the request then issue the notifications for users or commands to the actuator nodes.
-\subsection{System Design}
-Some pictures
-\section{Background Knowledge}
-Networking will be implemented in JAVA base on JAVA JNI and PECES\\
-BASE - A Micro broker-based is required as basic knowledge to implement the work.
+%Sensor nodes are placed around the room to collect the data. The distribution of the sensor nodes depend on the scheme of the room. \\
+%In one room will place 1-2 base station which are directly connected to the Central Control Unit (Coordinate). This coordinate takes the responsibility to communicate to mobile device to %answer the data query or listen to the request then issue the notifications for users or commands to the actuator nodes\cite{wiki:1}.
+%\subsection{System Design}
+%Some pictures
 \section{Implementation plan}
-%Hardware Capabilities :- Energy, Radios, Processor, Sensors.
-%data aggregation, ad-hoc routing, distributed signal processing in the context of wireless sensor networks.
-\subsection{Month 1 : Investigation, analyse, selection}
-\subsubsection{Week 1}
-Understanding about the overall of Wireless Sensor Network.\\
-Understanding about devices.\\
-Define capabilities of devices which have to be tested and analysed.
-\subsubsection{Week 2}
-Set up devices separately collect information about their capabilities.\\
-* Pay Attention on environment programming data transfer rate.
-\subsubsection{Week 3}
-- Analysing the testing result to plan some variants for designing the system such as  what type of sensor can be used, how many nodes we need, what tools are available to implement, etc;\\
-- Discuss to select: routing protocols, language programming, storing technique could be used.\\
-- Predict the issues probably occur in the reality.
-\subsubsection{Week 4}
-- Design physical 
 
-
-
-
-\subsection{Physical architecture for WSN}
-- Place the sensor nodes and test for the connectivity ability\\
-- Design the physical scheme for the whole network where to put base station, sensor nodes, gate way etc.\\
-- Test the data collecting\\
-- Optimization the physical sensor network.
-\subsection{Software Architecture for WSN}
-- Plan for the networking such as routing protocols, node addressing, etc \\
-- Built a framework supports for the collecting data from different types of sensor nodes.\\
-- Testing the networking.
-- Plan for data storing technologies : RDF scheme, RDF indexing (Are we going to use RDF data for data processing later???)\\ 
-- Depend on scenario rebuilding to decide what will we do with the data we got.\\
-put the plan here : what to do? how to do? what to buy if necessary?
-\section{Test Field}
-\subsection{Testing with data collection}
-\subsection{Testing with system decision}
-\subsection{Testing with notification and command}
+\bibliographystyle{abbrv}
+\bibliography{LaTex1}
 \end{document}
 
+%\subsection{Looking for parking place}
+% When a Derians drives his car to IDA business Park's gate, the first thing he does is to look for a parking place. When his phone has connected to DERI wifi, a parking map shows with %available slot for him.The application is also able to record his usual spot and remind him if it is available.
+
+%*** Is it feasible to do this with DERI parking slot?\\
+%It could be really fancy if we could have done something like that. I think we could. I will look for the device and report later.\\
+
+%\subsection{Guide the visitor}
+%A visitor is coming into DERI building, he open his cell phone and connect to the DERI network. A mobile application will automatically install to his cell phone and asking what he want to do.If %the visitor wants to meet some one in DERI, the system will notify his host to arrange the place for the meeting then guide him to his meeting.\\
+
+%If the visitor is coming to a meeting is hosted by DERI. The system will show him a list of meeting are or going to take place. He is able to pick the meeting then application will guide him to the %conference room booked for this meeting.\\
+ 
+% is it possible to use computing services in DERI? 
+
+%In some airports, when you turn on your phone we could receive a message to notify bla bla bla  with a link to their internet web page.I think we could use the same method to give visitor %the link to download and install app to their phone. 
+ 
+%\subsection{Notifications}
+% System will issue different notifications to remind people about the working environment the room if it might affect their health or concentration.
+ 
+% ***How to collect data to decide when to notify? it must be complicated process and needs domain expertise?
+%Yes, it's complicated. But let's touch the difficulty we always have chances to turn left when nothing is right !!!!
+ 
+%\subsection{Discussions}
+% More scenarios have to be depicted.
+% ***Sensors to more fine-grain contexts, for instance , noise-level $\to$ not in the office, RFID + calendar $\to$ in the meeting room with some one...\\
+%I agree....with the actuator node. We can do something more than that....sometime people left with out turn off light especially in the toilet ...we are here turning off the light for saving %DERI's money (Barney's voice :D)!!!
+% *** Visualizations : how to visualize such context data to the office and mobile apps ( be aware of limited screen size of mobile phone and it might be more convenient to use small dash %board device like digital watch?\\
+%Ha ha ... you really want to get this watch ... i know. Of cause the watches are really needed for the 2nd  scenario. How can the system remind the someone that he has visitor. He could be %not in his desk, not with his phone but his watch always at this hand.
+%*** Deploying and collecting data will cost some effort to know how the devices work, the quality of data, what  you do with them, and how to integrate them to build useful apps. \\
+%Hardware Capabilities :- Energy, Radios, Processor, Sensors.
+%data aggregation, ad-hoc routing, distributed signal processing in the context of wireless sensor networks.
+%\subsection{Investigation, analyse, selection}
 
 
 
 
 
 
+%\subsection{Software Architecture for WSN}
+%- Plan for the networking such as routing protocols, node addressing, etc \\
+%- Built a framework supports for the collecting data from different types of sensor nodes.\\
+%- Testing the networking.
+%- Plan for data storing technologies : RDF scheme, RDF indexing (Are we going to use RDF data for data processing later???)\\ 
+%- Depend on scenario rebuilding to decide what will we do with the data we got.\\
+%put the plan here : what to do? how to do? what to buy if necessary?
 
+%Step 1: Nodes.
+
+%Step 2: Network
+%Step 3: Data Centric
+%\section{Test Field}
+%\subsection{Testing with data collection}
+%\subsection{Testing with system decision}
+%\subsection{Testing with notification and command}
+% Devices capabilities test: Install Software Development Kit of all devices test their capabilities in practise.\\
+% Analysing the testing result to plan some variants for designing the system such as  what type of sensor can be used, how many nodes we need, what %tools are available to implement, etc;\\
+%- Discuss to select: routing protocols, language programming, storing technique could be used.\\
+%- Predict the issues probably occur in the reality.\\
+%\subsection{Physical architecture for WSN}Near Field Communication tagMan architecture\\Lighting, applicant control	\\Entertainment system?\\Communication systems\\Data systems\\
+
+%The aim of this project are trying to make mobile device communicate with each other example android mobile phone with laptop, android phone with wireless sensor network. \\
+
+% Example, people may be able to switch on/off the light by will be able to check if the meeting room is busy, if some one is on his desk e.t.c from their phone or laptop. (Scenario is still dumb, we have to discuss more about this).\\ 
+%In order to implement this system, a Wireless sensor network has to be built to collect the physical environment data which would help for predicting step. Some other actuator nodes will have to be place in order to automatic control some equipments in the building. 
+%Smart environment, "a small world, where all kinds of smart devices are continuously working to make inhabitants' lives more comfortable 
+%%Wireless sensor networks(WSN) are physical components in the designs of intelligent environments such as smart offices, smart building, smart city. Using the information collected by sensors, the software i.g., intelligent agents, can reason about the %environment and trigger actions (actuators)~\cite{smart offices:2010}. Our aim of this work is to build wireless network sensor in DERI building in order to construct a smart systems which help interacting with human beings in adaptive, active and unobtrusive way. \\
+% This WSN include sensors and actuators nodes which need to be robust and self-organized in order to create an ubiquitous/pervasive computing platform.  So we might have to face with some technical challenges: 1) Ad-hoc network discovery; 2) Network Control and Routing; 3) Collaborative signal and information processing; 4) Tasking and querying; 5) Security.
+%  for a smart office and we use DERI building as an object to do the experiments. The WNS consists of physical sensor nodes to collect environmental data, actuator nodes for automatic controlling such as light switching, door locking ... etc.  Each node should %able to communicate with their base station via wireless technologies such as wifi, zigbee..ect. A Central Unit is used as a sensitive data storage, data analyser to predict the status of the room and to  issue command to the actuator nodes. Users are able to %communicate with the system via application built and installed on their mobile devices. In the next sections we discuss about realistic scenario, available technology, system design, and evaluation result.
+
+%*** Be careful with grammar and wording
+%There are tow layers of meanings intelligent building, the physical building intelligence and intelligent building management and operation.\\
+%To provide a better service, managers must be able to utilise both human systems for facility management and computer systems for building and office automation.\\
+%An effective building shell is needed to absorb information technology expansion and allow organisations' growth and change.\\
+%Building and office automation and space management systems are required to facilitate effective internal and external communication, support environmental and individual comfort control and monitor change, access and usage.\\
+%a need for integrated technologies and services that allow the integration of disparate organisations systems, data and personal to focus on the common goal of increased business effectiveness.
+%A system View of intelligent buildings
+%A systems view of intelligent buildings:
+%- A computer and telecommunications system
+%- An alarm/security system
+%- A command and control center
+%- An electric power supply system usually guaranteeing continuous uninterrupted
+%- A utilities systems (water, sevwerage, and drainage)\\
+%General concerns : individual comfort, organizational flexibility, technological adaptability, environmental performance.
+%Situations:\\ 
+%- A guess is looking for a room in DERI in which his meeting with DERI people will take place.\\
+%- A guess is looking for a Derian and want to know if he could meet his host or in which way he can contact with his host.\\
+%Intelligent building system:\\
+%BAS\\
+%HVAC system\\
+%Lighting system\\
+%Vertical transportation system\\
+%File protection system\\
+%Security system\\
+%Communication system\\
 
 
 
