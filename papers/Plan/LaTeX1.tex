@@ -20,89 +20,54 @@ We are trying to build a small smart space in DERI, which helps people easier to
 2) Integrate data from sensor network with some services in DERI to build some smart services with could be helpful for people in DERI.\\
 On the technique side the project can show how the devices can communicate each other, how to build a small sensor network, and how to using sensor network data to do some smart services for office.
 \section{Scenarios}
-
-\subsection{Available meeting room}
-
-
-
-According to this survey~\cite{survey:2010} the scenarios can be categorized into next categories:
-\subsection{Communication}
-\subsection{Interaction}
-\subsubsection{B3.Automatic Device Configuration:}
-With application installed on the phone, users are able to control the infrastructures in the building such as  to switch the light,heater, air condition, or further more users can print documents from the phone as well.
+\subsection{Meeting room management: }
+ With voice sensor are placed in a meeting room, system can detect if this meeting room is busy. Integrating with meeting room booking data in DERI, the system can learn that if the room has been booked. The system will notify people in this room through their personal devices when their booking time is nearly over or this meeting room has been booked in next 5 minutes.
+\subsection{Integrate with personal devices: }
+People can be identified by their personal devices such as mobile phone, laptop.  System can detect the last person who leaves the room and ask him to turn off the lamp or the heater if they are still on.
 \subsection{Information}
-\subsubsection{C3.Access}
-Smart poster: when users stay near the poster. The phone will show the profile of the auto. (Near by sensor or QR code scanner). We can also deploy this system for the computer history museum.
-\subsection{Adaptation}
-\subsubsection{D1. Personalization of Devices}
-People could be identified by their personal devices such as mobile phone, laptop. 
-
-
-
-When Danh is coming to DERI, the big screen in the ground floor will send a welcome message. After that the screen will turn to the list of people who are in DERI at this moment. And if Danh is hosting a meeting in DERI, a notification will be sent to his coordinators and let them know that he is here. And the meeting could be start in couple of minutes.\\
-The system could help people easier to communicate each other. Danh is looking for Manfred, he could check if Manfred is in his room and available for him to talk. Or Danh is busy at this moment with a  meeting, or he want to focus on his work and he doesn't want people disturb him. He can turn over his phone, then his name will be remove in the available list.\\
-\subsection{Personal Assistance}
-\subsubsection{E3.Navigation and orientation}
-With the supports of the system, the users can find themselves where they are in the building. And they also can ask the system for guiding them to the room he want to go.\\
-The system can also help people find each others by integrating with D1, and DERI check-in system.
-\subsubsection{E4.Personal Reminder}
-\subsubsection{E5.Recommendation}
-A phone version of DERI helpdesk. 
-\subsection{Office Management}
-\subsubsection{F1. Facility Management}
-It would be more comfortable if you could book for a meeting room from your phone than via the outlook. When once you ask for booking meeting room, a list of available schedule will be display in your screen. You're able to pick the room and add other people to the attend list. The system give notifications to your partners to let them know where and when the meeting will take place.\\
-If a meeting is taking place, the system will notify the host 5 mins before the end of the booking time for asking him if the room is still available to extend the time or let he know that someone booked the room after his. In the situation that the room was booked next to his meeting and there is another room available, he can ask the system to deal with the other host if he could move his meeting to another room. The next host can accept or deny the deal.\\
-If someone is using meeting room without booking, the system will ask them to book or notify them to leave in 5 minutes before the room will be taken for a meeting.
+Smart poster: when users stay near the poster. The phone will show the profile of the auto. (Near by sensor). We can also deploy this system for the computer history museum.
 \subsection{The factors of improving the scenarios}
-\subsubsection{From the guess side}
-What can this system help  people who are visiting DERI
- \subsubsection{From Derian side}
-What can this system help the Derians.
-\subsubsection{Automatic decision room}
-
+\head{From the guess side: }What can this system help  people who are visiting DERI.\\
+\head{From Derian side: }What can this system help the Derians.\\
+\head{Automatic decision room}
 \section{Working plan}
 \subsection{Week 1}
-\head{System overview, basic knowledge preparation, scenarios discuss }\\
-- Basic knowledge of smart space, smart building, smart office and DERI office services.\\
-- Discussing about the scenarios.\\
-- Searching for available supporting document.\\
-- Software development Kit set up.\\ 
-- Sensor node capabilities testing in practise.\\
-\head{Output: } Understanding about the DERI building, supporting services. Most potential scenarios should be selected and improved. Sensor nodes capability report.
+\head{System overview, basic knowledge preparation, scenarios discuss}\\
+- Basic knowledge of smart office and wireless sensor network.\\
+- Basic knowledge of sensor network API.\\   
+- Discuss about the scenarios, and equipment preparation.\\
+\head{Output: } Scenarios, API selected.
 \subsection{Week 2}
 \head{System architecture design}\\
-The architecture of the whole system should be divide into:\\
-- Sensors wireless network architecture\\
-- Data integrating architecture\\
-List the equipment we probably need.\\
+Design:\\
+- Sensor wireless network architecture.\\
+- Data management architecture.\\ 
+Set up:\\
+- Software development kit.\\
 \head{Output:} A designed architecture of the system.
 \subsection{Week 3 - 4}
 \head{Sensor wireless network data collection implementation}\\
-Sensor nodes synchronization implementation.\\
-Sensitive data collecting test\\
-\head{Output} First version of wireless sensor network. A short report.
-\subsection{Week 5}
-\head{Evaluation}\\
-System gap, system issue, wireless sensor network evaluation. ...e.t.c\\
-\head{Output} Unexpected issues.
-\subsection{Week 6}
-\head{Unexpected issues}\\
-Set up sensor network in DERI building.\\
-Test for a ability of data collecting of the system.\\
+Set up sensor network.\\
+Data collecting test.\\
+Prepare for a short talk.\\
+\head{Output} First version of wireless sensor network.
+\subsection{Week 5 - 6}
+\head{Set up wireless sensor network and Evaluation}\\
+Set up wireless sensor network:\\
+ - Set up sensor network in DERI building.\\
+ - Evaluate data collection.\\
 \head{Output}Completed Wireless Sensor Network.
 \subsection{Week 7}
-\head{Data processing}\\
-- Related data in DERI services collecting.\\
-- Integrating with data from to build notification services.\\
-\head{Out put: } Prepared source for demonstrating application implementing.
-\subsection{week 8-11}
+\head{Data integration implementation}\\
+Integrate collected sensing data with other data source.\\
+\head{Out put: } Data management for demo application.
+\subsection{week 8 - 11}
 \head{Build the demonstrating applications}\\
-- build applications demo for the scenario.\\
+- Build applications demo for the scenario.\\
 \head{Output: }  Demo application.
 \subsection{Week 12}
 \head{Work report}\\
-Demo in group\\
-A short work report and short evaluation of the system.\\
+Prepare for demo in group\\
 \head{Out put: } System report.
 
 \section{Help:}
