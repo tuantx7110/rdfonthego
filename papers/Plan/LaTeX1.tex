@@ -16,36 +16,36 @@
 \maketitle
 \section{Description of work}
 We are trying to build a small smart space in DERI, which helps people easier to communicate with each others and with the building.There are two main aims we are trying to implement in this project:\\
-1) To build a small smart environment where devices are able to communicate each other such as mobile phone with mobile phone, mobile phones with laptops, mobile phone with sensor wireless network.\\
+1) To build a small smart environment where devices are able to communicate each other.\\
 2) Integrate data from sensor network with some services in DERI to build some smart services with could be helpful for people in DERI.\\
-
 On the technique side the project can show how the devices can communicate each other, how to build a small sensor network, and how to using sensor network data to do some smart services for office.
-
 \section{Scenarios}
-According to this survey~\cite{survey:2010} the scenarios can be categorized into next categories:
 
+\subsection{Available meeting room}
+
+
+
+According to this survey~\cite{survey:2010} the scenarios can be categorized into next categories:
 \subsection{Communication}
-\subsubsection{A2.Asynchronous communication: }
-Danh and I have an appointment in DERI and then go to west wood together for breakfast. But he leaves a bit earlier. He left a message for me on the system. When first reach to DERI, my phone will connect to wireless system and i will get this message. Then i can go straight to West Wood to meet him.\\
-(But he can call me or left me a sms???)
 \subsection{Interaction}
 \subsubsection{B3.Automatic Device Configuration:}
 With application installed on the phone, users are able to control the infrastructures in the building such as  to switch the light,heater, air condition, or further more users can print documents from the phone as well.
 \subsection{Information}
-\subsubsection{C2.Easy Data Transfer: }
-A service with help 2 android devices easier file transfer. (Mobile <-> laptop) 
 \subsubsection{C3.Access}
 Smart poster: when users stay near the poster. The phone will show the profile of the auto. (Near by sensor or QR code scanner). We can also deploy this system for the computer history museum.
 \subsection{Adaptation}
 \subsubsection{D1. Personalization of Devices}
-People could be identified by their personal devices such as mobile phone, laptop. When Danh is coming to DERI, the big screen in the ground floor will send a welcome message. After that the screen will turn to the list of people who are in DERI at this moment. And if Danh is hosting a meeting in DERI, a notification will be sent to his coordinators and let them know that he is here. And the meeting could be start in couple of minutes.\\
+People could be identified by their personal devices such as mobile phone, laptop. 
+
+
+
+When Danh is coming to DERI, the big screen in the ground floor will send a welcome message. After that the screen will turn to the list of people who are in DERI at this moment. And if Danh is hosting a meeting in DERI, a notification will be sent to his coordinators and let them know that he is here. And the meeting could be start in couple of minutes.\\
 The system could help people easier to communicate each other. Danh is looking for Manfred, he could check if Manfred is in his room and available for him to talk. Or Danh is busy at this moment with a  meeting, or he want to focus on his work and he doesn't want people disturb him. He can turn over his phone, then his name will be remove in the available list.\\
 \subsection{Personal Assistance}
 \subsubsection{E3.Navigation and orientation}
 With the supports of the system, the users can find themselves where they are in the building. And they also can ask the system for guiding them to the room he want to go.\\
 The system can also help people find each others by integrating with D1, and DERI check-in system.
 \subsubsection{E4.Personal Reminder}
-Sometime, it would be very awkward for Marcel to arrange a football match. He has to write so many emails to collect people. With the smart reminder service, he only need to create a "call for football" notification. This notification will be sent to every personal devices of people in DERI to let them know. If they want to go, they just put the attends button and this appointment will be automatically added to their personal calendar. Number of attendances will be updated immediately once when a new agreement has been submitted.Then Marcel will easier to know how many people will be in this event and make the last decision. It also work with noticing reading group or invited talk.
 \subsubsection{E5.Recommendation}
 A phone version of DERI helpdesk. 
 \subsection{Office Management}
@@ -63,44 +63,45 @@ What can this system help the Derians.
 \section{Working plan}
 \subsection{Week 1}
 \head{System overview, basic knowledge preparation, scenarios discuss }\\
-Basic knowledge of smart space, smart building, smart office and DERI office services.\\
-Discussing about the scenarios.\\
-Searching for available supporting document.\\
-\head{Output: } Understanding about the DERI building, supporting services. Most potential scenarios should be selected and improved.
+- Basic knowledge of smart space, smart building, smart office and DERI office services.\\
+- Discussing about the scenarios.\\
+- Searching for available supporting document.\\
+- Software development Kit set up.\\ 
+- Sensor node capabilities testing in practise.\\
+\head{Output: } Understanding about the DERI building, supporting services. Most potential scenarios should be selected and improved. Sensor nodes capability report.
 \subsection{Week 2}
 \head{System architecture design}\\
 The architecture of the whole system should be divide into:\\
-- sensors wireless network architecture\\
-- data integrating architecture\\
-- network architecture\\
+- Sensors wireless network architecture\\
+- Data integrating architecture\\
 List the equipment we probably need.\\
 \head{Output:} A designed architecture of the system.
-\subsection{Week 3} 
-\head{Sensor wireless network implementation}\\
-Set up SDK for device\\
-Sensor node capabilities testing in practise.\\
-\head{Output:} Understanding sensor nodes capabilities. Installed SDK for next step.
-\subsection{Week 4 - 5}
+\subsection{Week 3 - 4}
 \head{Sensor wireless network data collection implementation}\\
 Sensor nodes synchronization implementation.\\
 Sensitive data collecting test\\
-\head{Output} First version of wireless sensor network.
-\subsection{Week 6}
+\head{Output} First version of wireless sensor network. A short report.
+\subsection{Week 5}
 \head{Evaluation}\\
-Short work report\\
 System gap, system issue, wireless sensor network evaluation. ...e.t.c\\
 \head{Output} Unexpected issues.
-\subsection{Week 7}
+\subsection{Week 6}
 \head{Unexpected issues}\\
 Set up sensor network in DERI building.\\
 Test for a ability of data collecting of the system.\\
 \head{Output}Completed Wireless Sensor Network.
-\subsection{Week 8 - 11}
+\subsection{Week 7}
+\head{Data processing}\\
+- Related data in DERI services collecting.\\
+- Integrating with data from to build notification services.\\
+\head{Out put: } Prepared source for demonstrating application implementing.
+\subsection{week 8-11}
 \head{Build the demonstrating applications}\\
-- build applications demo for the scenario.
+- build applications demo for the scenario.\\
 \head{Output: }  Demo application.
 \subsection{Week 12}
 \head{Work report}\\
+Demo in group\\
 A short work report and short evaluation of the system.\\
 \head{Out put: } System report.
 
@@ -140,6 +141,13 @@ BASE - A Micro broker-based is required as basic knowledge to implement the work
 - Room check-in system. (where.deri.ie)
 
 
+
+\section{Implementation plan}
+
+\bibliographystyle{abbrv}
+\bibliography{LaTex1}
+\end{document}
+
 %\section{Set up}
 %\subsection{Sensor node distribution}
 %Senosr nodes : Report current status ...\\
@@ -149,11 +157,6 @@ BASE - A Micro broker-based is required as basic knowledge to implement the work
 %In one room will place 1-2 base station which are directly connected to the Central Control Unit (Coordinate). This coordinate takes the responsibility to communicate to mobile device to %answer the data query or listen to the request then issue the notifications for users or commands to the actuator nodes\cite{wiki:1}.
 %\subsection{System Design}
 %Some pictures
-\section{Implementation plan}
-
-\bibliographystyle{abbrv}
-\bibliography{LaTex1}
-\end{document}
 
 %\subsection{Looking for parking place}
 % When a Derians drives his car to IDA business Park's gate, the first thing he does is to look for a parking place. When his phone has connected to DERI wifi, a parking map shows with %available slot for him.The application is also able to record his usual spot and remind him if it is available.
