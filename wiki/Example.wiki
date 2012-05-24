@@ -8,7 +8,7 @@
 
 
 = Details =
- In this example, we used RDF store to store the foaf profile. Foaf profiles are converted to n-triples by sindice any23 api. To avoid type the URL,we are using QRCode scanner api. The QRCode generator plug-in for FireFog is easily found on google.com , and QRCode scanner for android at android market.
+ In this example, we used RDF store to store the foaf profile. Foaf profiles are converted to n-triples by sindice any23 api. To avoid type the URL,we are using QRCode scanner api. The QRCode generator plug-in for FireFox is easily found on google.com , and QRCode scanner for android at android market.
 
  * Adding triples to store:
  {{{ 
