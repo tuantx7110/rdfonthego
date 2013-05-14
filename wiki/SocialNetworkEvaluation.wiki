@@ -33,9 +33,6 @@ After generating the simulated graph, we put the n-triples data files into SD ca
 We can install <a href= 'https://play.google.com/store/apps/details?id=org.openintents.filemanager&feature=search_result#?t=W251bGwsMSwxLDEsIm9yZy5vcGVuaW50ZW50cy5maWxlbWFuYWdlciJd'>IO File Manager</a> the check if the files are already copied into the storage.
 
 
-====2.2.1 TDBOID====
-
-
 {{{ 
  //Create or open a store name "example"
  graph	=	new BDBGraph("example");
