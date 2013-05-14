@@ -87,6 +87,6 @@ In RDF OTG, we also plugged  Jena Riot Loader in case of parsing RDF from n-trip
 The experiments stopped when the loading finishes or the application crashes due to out of heap memory.
 
 ===2.3 Comparing query evaluation===
-
+For evaluating the query processor. We implemented 
 
 ===2.4 Scalability evaluation===
