@@ -30,7 +30,7 @@ After generating the simulated graph, we put the n-triples data files into SD ca
 
 *Note: 
 
-We can install <a href= 'https://rdfonthego.googlecode.com/files/social%20dataset.rar'>IO File Manager</a> the check if the files are already copied into the storage.
+We can install <a href= 'https://play.google.com/store/apps/details?id=org.openintents.filemanager&feature=search_result#?t=W251bGwsMSwxLDEsIm9yZy5vcGVuaW50ZW50cy5maWxlbWFuYWdlciJd'>IO File Manager</a> the check if the files are already copied into the storage.
 
 
 
