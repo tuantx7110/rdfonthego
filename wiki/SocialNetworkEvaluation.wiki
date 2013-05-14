@@ -9,5 +9,6 @@ This tutorial explain how to set up the RDF On The Go and how we did the experie
 ==Seting up an Android application with RDF OTG==
 This new version of RDF OTG provides a native Android RDF store, all you will need is just adding two jar file below into your android application:
 
-- <a href='https://rdfonthego.googlecode.com/files/otg_rdf_core.jar'>RDF OTG native storage</a>Spaql query engine "Jena ARQ" ported for RDF OTG.
-- <a href='https://rdfonthego.googlecode.com/files/otg_arq.jar'>Spaql query engine "Jena ARQ" ported for RDF OTG.</a>
+- <a href='https://rdfonthego.googlecode.com/files/otg_rdf_core.jar'>otg_rdf_core.jar</a> : native RDF store for Android platform.
+
+- <a href='https://rdfonthego.googlecode.com/files/otg_arq.jar'>otg_arq.jar </a>Spaql query engine "Jena ARQ" ported for RDF OTG.
