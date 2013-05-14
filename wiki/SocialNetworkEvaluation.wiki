@@ -18,7 +18,7 @@ This new version of RDF OTG provides native RDF storage and Sparql querying engi
 ===2.1 Social network generation===
  For data simulations, we used <a href='http://sourceforge.net/projects/sibenchmark/'> Social Intelligence Benchmark(SIB) tool</a> which takes the schema style from popular social networks such as Facebook as the baseline for designing an RDF-friendly, scientific benchmark. Specifically, it simulates an RDF backend of a social network site, in which users and their interactions form an social graph of social activities such as writing posts, posting comments, creating/managing groups, etc.
  
- The number of users could be change in the parameter file - params.ini. And we also modified name space, the number of friends, the number of photos, posts, comments in order to simulate different network. Example www.facebook.com for facebook, www.linkedin.com for Linkedin, etc. The triples will be save in text file with form of n-tripe. The example dataset could be found <a href= 'https://rdfonthego.googlecode.com/files/social%20dataset.rar'>here</a>
+ The number of users could be change in the parameter file - params.ini. And we also modified name space, the number of friends, the number of photos, posts, comments in order to simulate different network. Example www.facebook.com for facebook, www.linkedin.com for Linkedin, etc. The triples will be save in text file with form of n-tripe. The simulated data for our evaluation could be found <a href= 'https://rdfonthego.googlecode.com/files/social%20dataset.rar'>here</a>
 
 
 ===2.2 Update throughput evaluation===
