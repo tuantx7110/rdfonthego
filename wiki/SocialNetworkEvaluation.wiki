@@ -73,7 +73,7 @@ In RDF OTG, we also plugged  Jena Riot Loader in case of parsing RDF from n-trip
 	    for (int i = 1; i < 100; i++) {
 	        fileUtil.write(graph.size());
 		int k = 1700000 + i;
-		RiotLoader.read(loadP + "mr0_fb" + Integer.toString(k) + ".nt", graph);
+		RiotLoader.read(loading_path + "mr0_fb" + Integer.toString(k) + ".nt", graph);
 		fileUtil.write(graph.size());
 		graph.sync();
 	    }
