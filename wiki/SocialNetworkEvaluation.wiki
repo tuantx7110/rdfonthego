@@ -13,4 +13,6 @@ This new version of RDF OTG provides native RDF storage and Sparql querying engi
 
 - <a href='https://rdfonthego.googlecode.com/files/otg_arq.jar'>otg_arq.jar </a> - The spaql query engine which is ported from Jena ARQ with some modifications in order to pair with RDF OTG.
 
+* Note: Requires Android 2.3.3 or later version and WRITE_EXTERNAL_STORAGE permisson has to be added in the Android project.
+
 ===Setting up for evaluations===
