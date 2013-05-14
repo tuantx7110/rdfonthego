@@ -22,7 +22,7 @@ This new version of RDF OTG provides native RDF storage and Sparql querying engi
 
 
 ===2.2 Update throughput evaluation===
-After generating the simulated graph, we put the n-triples data files into SD card under folder 'Experience'. On Galaxy and Nexus, we can put them into their virtual removable storage. The Android OS will create an virtual path to copied directory and treat it as it is in the external storage. Thus we can get access to these files by the same way on 3 devices.
+ After generating the simulated graph, we put the n-triples data files into SD card under folder 'Experience'. On Galaxy and Nexus, we can put them into their virtual removable storage. The Android OS will create an virtual path to copied directory and treat it as it is in the external storage. Thus we can get access to these files by the same way on 3 devices.
 
 {{{
  String loading_path = Environment.getExternalStorageDirectory() + "/Experience/";
@@ -30,9 +30,9 @@ After generating the simulated graph, we put the n-triples data files into SD ca
 
 *Note: 
 
-You can install <a href= 'https://play.google.com/store/apps/details?id=org.openintents.filemanager&feature=search_result#?t=W251bGwsMSwxLDEsIm9yZy5vcGVuaW50ZW50cy5maWxlbWFuYWdlciJd'>IO File Manager</a> the check if the files are already copied into the storage.
+ You can install <a href= 'https://play.google.com/store/apps/details?id=org.openintents.filemanager&feature=search_result#?t=W251bGwsMSwxLDEsIm9yZy5vcGVuaW50ZW50cy5maWxlbWFuYWdlciJd'>IO File Manager</a> the check if the files are already copied into the storage.
 
-In RDF OTG, we also plugged  Jena Riot Loader in case of parsing RDF from n-triples format. In first experiment, for evaluating throughput of inserting data. We created a graph with about 1500 users which contains about one million triples and parse into the store, then we measure the insertion speed. The codes of experiment are in the scripts below: 
+ In RDF OTG, we also plugged  Jena Riot Loader in case of parsing RDF from n-triples format. In first experiment, for evaluating throughput of inserting data. We created a graph with about 1500 users which contains about one million triples and parse into the store, then we measure the insertion speed. The codes of experiment are in the scripts below: 
 
 {{{ 
  //TDB JENA
@@ -85,10 +85,16 @@ In RDF OTG, we also plugged  Jena Riot Loader in case of parsing RDF from n-trip
 }
 }}}
 
-The experiments stopped when the loading finishes or the application crashes due to out of heap memory.
+ The experiments stopped when the loading finishes or the application crashes due to out of heap memory.
 
 ===2.3 Comparing query evaluation===
-For evaluating the query processor. We implemented Integration Graph for both Jena TDB and RDF OTG. The applications could be found in the download of this project. The scripts below are showing the code example of using querying on JENA TDB and RDF OTG in our evaluation.
+ For evaluating the query processor. We implemented Integration Graph for both Jena TDB and RDF OTG. The applications could be found in the download of this project. 
+
+
+
+
+
+The scripts below are showing the code example of using querying on JENA TDB and RDF OTG in our evaluation.
 {{{
 //Example code running with the first query on JENA TDB
 public static void query1(int numProfile, JenaMasterGraph JMG){
