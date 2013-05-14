@@ -91,25 +91,26 @@ For evaluating the query processor. We implemented Integration Graph for both Je
 For querying
 
 {{{
- 
-    public static void query1(int numProfile, JenaMasterGraph JMG){
-	String file = fileName + "_Q1_" + Integer.toString(numProfile);
-	System.out.println(file);
-	FileUtil fileUtil = new FileUtil(file);
-	Query query = QueryFactory.create(query1);
-	Model model = new ModelCom(JMG);
+//Example code running with the first query on JENA TDB
+public static void query1(int numProfile, JenaMasterGraph JMG){
+   String file = fileName + "_Q1_" + Integer.toString(numProfile);
+   System.out.println(file);
+   FileUtil fileUtil = new FileUtil(file);
+   Query query = QueryFactory.create(query1);
+   Model model = new ModelCom(JMG);
 	
-	QueryExecution qExec = QueryExecutionFactory.create(query, model);
-	try{
-	    fileUtil.start();
-	    fileUtil.write(0);
-	    ResultSet itr = qExec.execSelect();
-	    
-	    int i = 0;
-	    while (itr.hasNext()){
-		i++;
-		QuerySolution sol = itr.next();
-		Log.d("System.out", i + " s : "  +    sol.get("s").asNode().toString()
+   QueryExecution qExec = QueryExecutionFactory.create(query, model);
+   
+   try{
+       fileUtil.start();
+       fileUtil.write(0);
+       ResultSet itr = qExec.execSelect();
+  
+       int i = 0;
+       while (itr.hasNext()){
+         i++;
+	 QuerySolution sol = itr.next();
+	 Log.d("System.out", i + " s : "  +    sol.get("s").asNode().toString()
 				  + " p : "  +   sol.get("p").asNode().toString()
 				  + " o : "  +   sol.get("p").asNode().toString());
 	    }
