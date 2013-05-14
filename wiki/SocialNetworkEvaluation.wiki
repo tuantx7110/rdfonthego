@@ -32,7 +32,7 @@ After generating the simulated graph, we put the n-triples data files into SD ca
 
 You can install <a href= 'https://play.google.com/store/apps/details?id=org.openintents.filemanager&feature=search_result#?t=W251bGwsMSwxLDEsIm9yZy5vcGVuaW50ZW50cy5maWxlbWFuYWdlciJd'>IO File Manager</a> the check if the files are already copied into the storage.
 
-In RDF OTG, we also plugged  Jena Riot Loader in case of parsing RDF from n-triples format. In first experiment, for evaluating throughput of inserting data. We created a graph with about 1500 users which contains about one million triples and parse into the store. Then we measure the insertion speed. The codes of experiment are in the scripts below: 
+In RDF OTG, we also plugged  Jena Riot Loader in case of parsing RDF from n-triples format. In first experiment, for evaluating throughput of inserting data. We created a graph with about 1500 users which contains about one million triples and parse into the store, then we measure the insertion speed. The codes of experiment are in the scripts below: 
 
 {{{ 
  //TDB JENA
@@ -84,7 +84,7 @@ In RDF OTG, we also plugged  Jena Riot Loader in case of parsing RDF from n-trip
     }
 }}}
 
-
+The experiments stopped when the loading finish or the application crash due to out of heap memory.
 
 
 ===2.3 Comparing query evaluation===
