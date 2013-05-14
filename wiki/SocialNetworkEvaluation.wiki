@@ -88,11 +88,7 @@ This new version of RDF OTG provides native RDF storage and Sparql querying engi
  The experiments stopped when the loading finishes or the application crashes due to out of heap memory.
 
 ===2.3 Comparing query evaluation===
- For evaluating the query processor. We implemented Integration Graph for both Jena TDB and RDF OTG. The applications could be found in the download of this project. 
-
-
-
-
+ For evaluating the query processor, we implemented Integration application with both Jena TDB and RDF OTG. The applications could be found in the download of this project. With each application, we set up 45 profiles(15 in each dataset) on HTC, 180 profiles(60 in each data set) on GALAXY, 120 profiles(40 in each data set) on NEXUS 7. After than we measure the response time of each query.
 
 The scripts below are showing the code example of using querying on JENA TDB and RDF OTG in our evaluation.
 {{{
@@ -158,5 +154,9 @@ public static void query1(Graph graph) {
     }
 }
 }}}
+
+Here are the script of the queries.
+
+
   
 ===2.4 Scalability evaluation===
