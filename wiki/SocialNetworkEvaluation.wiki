@@ -30,7 +30,7 @@ After generating the simulated graph, we put the n-triples data files into SD ca
 
 *Note: 
 
-We can install <a href= 'https://play.google.com/store/apps/details?id=org.openintents.filemanager&feature=search_result#?t=W251bGwsMSwxLDEsIm9yZy5vcGVuaW50ZW50cy5maWxlbWFuYWdlciJd'>IO File Manager</a> the check if the files are already copied into the storage.
+You can install <a href= 'https://play.google.com/store/apps/details?id=org.openintents.filemanager&feature=search_result#?t=W251bGwsMSwxLDEsIm9yZy5vcGVuaW50ZW50cy5maWxlbWFuYWdlciJd'>IO File Manager</a> the check if the files are already copied into the storage.
 
 In RDF OTG, we also plugged  Jena Riot Loader in case of parsing RDF in n-triples format.
 
