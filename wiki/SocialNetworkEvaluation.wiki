@@ -22,6 +22,12 @@ This new version of RDF OTG provides native RDF storage and Sparql querying engi
 
 
 ===2.2 Update throughput evaluation===
+After generating the simulated graph, we put the n-triples data files into SD card under folder Experience. On Galaxy and Nexus, Android 4.x will provide an virtual path copied directory. We can get access to this folder through the path give by:
+
+{{{
+ String loading_path = Environment.getExternalStorageDirectory() + "/Experience/";
+}}}
+
 {{{ 
  //Create or open a store name "example"
  graph	=	new BDBGraph("example");
