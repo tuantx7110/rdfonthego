@@ -14,8 +14,10 @@ This new version of RDF OTG provides native RDF storage and Sparql querying engi
 * Note: Requires Android 2.3.3 or later version and WRITE_EXTERNAL_STORAGE permisson has to be added in the Android project.
 
 ==2. Setting up for evaluations==
-
 ===2.1 Social network generation===
+ For data simulations, we used <a href='http://sourceforge.net/projects/sibenchmark/'> Social Intelligence Benchmark tool</a>.
+
+
 ===2.2 Social network generation===
 ===2.3 Social network generation===
 ===2.4 Social network generation===
