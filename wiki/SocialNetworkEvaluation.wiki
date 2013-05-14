@@ -6,4 +6,4 @@ This tutorial explain how to set up the RDF On The Go and how we did the experie
 
 = Details =
 
-==Set up an Android application with RDF OTG==
+==Seting up an Android application with RDF OTG==
