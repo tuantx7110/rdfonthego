@@ -265,25 +265,6 @@ public class JenaMasterGraph extends GraphBase {
 	}
     }
 
-
-    public void sameAsDebug(){
-	System.out.println("sameAsGraph");
-	ExtendedIterator<Triple> triples1 = sameAsGraph.find(Node.ANY, Node.ANY, Node.ANY);
-	while (triples1.hasNext()) {
-	    Triple t = triples1.next();
-	    System.out.println(t.toString());
-	}
-    }
-    
-    public void debug() {
-	System.out.println("UnifiedGraph");
-	ExtendedIterator<Triple> triples = unifiedGraph.find(Node.ANY, Node.ANY, FOAF.Person.asNode());
-	while (triples.hasNext()) {
-	    Triple t = triples.next();
-	    System.out.println(t.toString());
-	}
-    }
-
     public void sync() {
 	TDB.sync(unifiedGraph);
 	TDB.sync(sourceGraph);
