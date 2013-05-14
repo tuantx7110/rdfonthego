@@ -38,7 +38,31 @@ In RDF OTG, we also plugged  Jena Riot Loader in case of parsing RDF from n-trip
  //TDB JENA
  String loadP = Environment.getExternalStorageDirectory() + "/Experience/";
  public static void load2(Graph graph) {
-	FileUtil fileUtil = new FileUtil(fileName + "2");
+	FileUtil fileUtil = new FileUtil("JenaTDB_1_Ex");
+	BufferedReader in;
+	ParserTurtle parser = new ParserTurtle();
+	try {
+	    fileUtil.start();
+	    fileUtil.write(graph.size());
+	    for (int i = 1; i < 100; i++) {
+		int k = 1700000 + i;
+		in = new BufferedReader(new FileReader(loadP + "mr0_fb" + Integer.toString(k) + ".nt"));
+		parser.parse(graph, " ", in);
+		fileUtil.write(graph.size());
+		TDB.sync(graph);
+	    }
+	    fileUtil.close();
+	} catch (IOException e) {
+	    e.printStackTrace();
+	}
+    }
+}}}
+
+{{{ 
+ //TDB JENA
+ String loadP = Environment.getExternalStorageDirectory() + "/Experience/";
+ public static void load2(Graph graph) {
+	FileUtil fileUtil = new FileUtil("JenaTDB_1_Ex");
 	BufferedReader in;
 	ParserTurtle parser = new ParserTurtle();
 	try {
