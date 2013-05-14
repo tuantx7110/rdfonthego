@@ -222,19 +222,21 @@ static String query5 = StrUtils.strjoin("\n",
 	 "?person  ?predicate  ?object.", 
       "}", 
    "}");
-    
-    static String query6 = StrUtils.strjoin("\n", 
-	    "PREFIX foaf:        <http://xmlns.com/foaf/0.1/>", 
-	    "PREFIX rdf:         <http://www.w3.org/1999/02/22-rdf-syntax-ns#>",
-	    "PREFIX sioc:        <http://rdfs.org/sioc/ns#>",
-	    "PREFIX sibv:        <http://www.ins.cwi.nl/sib/vocabulary/>", 
-	    "SELECT  DISTINCT ?photo",
-	    "{ ", 
-	    	"<http://www.facebook.com/person/p39> foaf:knows ?person.",
-	    	"?user  sioc:account_of ?person.",
-	    	"?user  sibv:like       ?photo.",
-	    	"?photo rdf:type sibv:Photo.",
-	    "}");
+}}}
+
+{{{
+static String query6 = StrUtils.strjoin("\n", 
+   "PREFIX foaf:        <http://xmlns.com/foaf/0.1/>", 
+   "PREFIX rdf:         <http://www.w3.org/1999/02/22-rdf-syntax-ns#>",
+   "PREFIX sioc:        <http://rdfs.org/sioc/ns#>",
+   "PREFIX sibv:        <http://www.ins.cwi.nl/sib/vocabulary/>", 
+   "SELECT  DISTINCT ?photo",
+   "{ ", 
+      "<http://www.facebook.com/person/p39> foaf:knows ?person.", 
+      "?user  sioc:account_of ?person.",
+      "?user  sibv:like       ?photo.",
+      "?photo rdf:type sibv:Photo.",
+   "}");
 }}}
 
   
