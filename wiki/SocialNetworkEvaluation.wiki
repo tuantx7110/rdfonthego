@@ -36,12 +36,14 @@ In RDF OTG, we also plugged  Jena Riot Loader in case of parsing RDF from n-trip
 
 {{{ 
  //TDB JENA
- String loadP = Environment.getExternalStorageDirectory() + "/Experience/";
- public static void load2(Graph graph) {
-	FileUtil fileUtil = new FileUtil("JenaTDB_1_Ex");
-	BufferedReader in;
-	ParserTurtle parser = new ParserTurtle();
-	try {
+ public static void start(){
+ String loading_path = Environment.getExternalStorageDirectory() + "/Experience/";
+ String store_path   = Environment.getExternalStorageDirectory() + "/JenaTDB/";
+ Graph graph = TDBFactory.createGraph(store_path);
+ FileUtil fileUtil = new FileUtil("JenaTDB_1_Ex");
+ BufferedReader in;
+ ParserTurtle parser = new ParserTurtle();
+ try {
 	    fileUtil.start();
 	    fileUtil.write(graph.size());
 	    for (int i = 1; i < 100; i++) {
@@ -61,7 +63,10 @@ In RDF OTG, we also plugged  Jena Riot Loader in case of parsing RDF from n-trip
 {{{ 
  //TDB JENA
  String loadP = Environment.getExternalStorageDirectory() + "/Experience/";
- public static void load2(Graph graph) {
+ String storePath
+ public static void start() {
+        
+        Graph graph = 
 	FileUtil fileUtil = new FileUtil("JenaTDB_1_Ex");
 	BufferedReader in;
 	ParserTurtle parser = new ParserTurtle();
