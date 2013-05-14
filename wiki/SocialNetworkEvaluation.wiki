@@ -25,7 +25,7 @@ This new version of RDF OTG provides native RDF storage and Sparql querying engi
  After generating the simulated graph, we put the n-triples data files into SD card under folder 'Experience'. On Galaxy and Nexus, we can put them into their virtual removable storage. The Android OS will create an virtual path to copied directory and treat it as it is in the external storage. Thus we can get access to these files by the same way on 3 devices.
 
 {{{
- String loading_path = Environment.getExternalStorageDirectory() + "/Experience/";
+ String loading_path = Environment.getExternalStorageDirectory() + "/Experiment/";
 }}}
 
 *Note: 
@@ -37,7 +37,7 @@ This new version of RDF OTG provides native RDF storage and Sparql querying engi
 {{{ 
  //TDB JENA
  public static void start(){
- String loading_path = Environment.getExternalStorageDirectory() + "/Experience/";
+ String loading_path = Environment.getExternalStorageDirectory() + "/Experiment/";
  String store_path   = Environment.getExternalStorageDirectory() + "/JenaTDB/";
  Graph graph = TDBFactory.createGraph(store_path);
  FileUtil fileUtil = new FileUtil("JenaTDB_1_Ex");
@@ -62,7 +62,7 @@ This new version of RDF OTG provides native RDF storage and Sparql querying engi
 
 {{{ 
  //RDF OTG
- String load_path = Environment.getExternalStorageDirectory() + "/Experience/";
+ String load_path = Environment.getExternalStorageDirectory() + "/Experiment/";
  String store_Path = Environment.getExternalStorageDirectory() + "/RDF_OTG/";
  public static void start() {
         Graph graph = new OTGGraph(store_path);
