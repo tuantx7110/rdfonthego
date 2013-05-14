@@ -156,7 +156,77 @@ public static void query1(Graph graph) {
 }}}
 
 Here are the script of the queries.
+{{{
+static String query1 = StrUtils.strjoin("\n", 
+	    "PREFIX foaf:   <http://xmlns.com/foaf/0.1/>", 
+	    "SELECT ?s ?p ?o",
+	    "WHERE", 
+	    "{ ", 
+	       "?s foaf:mbox 'mailto:Roger151@gmx.com'.",
+	       "?s ?p ?o.",
+	     "}");
 
+    static String query2 = StrUtils.strjoin("\n", 
+	    "PREFIX foaf:   <http://xmlns.com/foaf/0.1/>", 
+	    "PREFIX db:     <http://dbpedia.org/resource/>", 
+	    "SELECT ?firstName ?lastName ?mbox ?friend", 
+	    "WHERE", 
+	    "{ ", 
+	    	"?person foaf:based_near db:Peoples_Republic_of_China.", 
+	    	"?person foaf:firstName ?firstName.", 
+	    	"?person foaf:lastName  ?lastName.", 
+	    	"?person foaf:knows     ?friend.", 
+	    	"?person foaf:mbox      ?mbox.", 
+	    "}");
+
+    static String query3 = StrUtils.strjoin("\n", 
+	    "PREFIX sibv:   <http://www.ins.cwi.nl/sib/vocabulary/>", 
+	    "PREFIX sioc:   <http://rdfs.org/sioc/ns#>", 
+	    "PREFIX dbpo:   <http://dbpedia.org/ontology/>", 
+	    "SELECT DISTINCT ?location", 
+	    "WHERE", 
+	    "{ ", 
+	    "?user  sioc:account_of <http://www.facebook.com/person/p151>.", 
+	    "?photo sibv:usertag    ?user.", 
+	    "?photo dbpo:location   ?location.", "}");
+
+    static String query4 = StrUtils.strjoin("\n", 
+	    "PREFIX foaf:   <http://xmlns.com/foaf/0.1/>", 
+	    "PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>", 
+	    "SELECT  DISTINCT ?predicate", 
+	    "WHERE", 
+	    "{ ", 
+	    "?person  rdf:type    foaf:Person.", 
+	    "?subject ?predicate  ?person.", 
+	    "}");
+
+    static String query5 = StrUtils.strjoin("\n", 
+	    "PREFIX foaf:   <http://xmlns.com/foaf/0.1/>", 
+	    "PREFIX rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#>", 
+	    "SELECT  DISTINCT ?predicate", "WHERE", 
+	    "{ ", 
+	    	"{ ",	 
+	    		"?person  rdf:type foaf:Person.", 
+	    		"?subject ?predicate  ?person.", 
+	    	"} UNION {", 
+	    		"?person  rdf:type foaf:Person.", 
+	    		"?person  ?predicate  ?object.", 
+	    	"}", 
+	    "}");
+    
+    static String query6 = StrUtils.strjoin("\n", 
+	    "PREFIX foaf:        <http://xmlns.com/foaf/0.1/>", 
+	    "PREFIX rdf:         <http://www.w3.org/1999/02/22-rdf-syntax-ns#>",
+	    "PREFIX sioc:        <http://rdfs.org/sioc/ns#>",
+	    "PREFIX sibv:        <http://www.ins.cwi.nl/sib/vocabulary/>", 
+	    "SELECT  DISTINCT ?photo",
+	    "{ ", 
+	    	"<http://www.facebook.com/person/p39> foaf:knows ?person.",
+	    	"?user  sioc:account_of ?person.",
+	    	"?user  sibv:like       ?photo.",
+	    	"?photo rdf:type sibv:Photo.",
+	    "}");
+}}}
 
   
 ===2.4 Scalability evaluation===
