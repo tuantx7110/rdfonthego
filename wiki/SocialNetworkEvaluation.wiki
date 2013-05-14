@@ -1,4 +1,4 @@
-#RDF On The Go setting up and evaluation.
+#summary RDF On The Go setting up and evaluation.
 
 = Introduction =
 
