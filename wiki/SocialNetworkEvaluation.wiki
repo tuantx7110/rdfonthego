@@ -6,7 +6,4 @@ This tutorial explain how to set up the RDF On The Go and how we did the experie
 
 = Details =
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+==Set up an Android application with RDF OTG==
