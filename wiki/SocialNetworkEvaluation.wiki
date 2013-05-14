@@ -88,6 +88,40 @@ The experiments stopped when the loading finishes or the application crashes due
 
 ===2.3 Comparing query evaluation===
 For evaluating the query processor. We implemented Integration Graph for both Jena TDB and RDF OTG. The applications could be found in the download of this project.
+For querying
 
+{{{
+ 
+    public static void query1(int numProfile, JenaMasterGraph JMG){
+	String file = fileName + "_Q1_" + Integer.toString(numProfile);
+	System.out.println(file);
+	FileUtil fileUtil = new FileUtil(file);
+	Query query = QueryFactory.create(query1);
+	Model model = new ModelCom(JMG);
+	
+	QueryExecution qExec = QueryExecutionFactory.create(query, model);
+	try{
+	    fileUtil.start();
+	    fileUtil.write(0);
+	    ResultSet itr = qExec.execSelect();
+	    
+	    int i = 0;
+	    while (itr.hasNext()){
+		i++;
+		QuerySolution sol = itr.next();
+		Log.d("System.out", i + " s : "  +    sol.get("s").asNode().toString()
+				  + " p : "  +   sol.get("p").asNode().toString()
+				  + " o : "  +   sol.get("p").asNode().toString());
+	    }
+	    fileUtil.write(1);
+	    fileUtil.close();
+	}catch(IOException e){
+	    e.printStackTrace();
+	}
+	
+	
+	
+    }
+}}}
   
 ===2.4 Scalability evaluation===
