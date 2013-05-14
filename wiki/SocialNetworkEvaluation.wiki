@@ -82,14 +82,13 @@ In RDF OTG, we also plugged  Jena Riot Loader in case of parsing RDF from n-trip
 	    e.printStackTrace();
 	}
     }
+}
 }}}
 
 The experiments stopped when the loading finishes or the application crashes due to out of heap memory.
 
 ===2.3 Comparing query evaluation===
-For evaluating the query processor. We implemented Integration Graph for both Jena TDB and RDF OTG. The applications could be found in the download of this project.
-For querying
-
+For evaluating the query processor. We implemented Integration Graph for both Jena TDB and RDF OTG. The applications could be found in the download of this project. The scripts below are showing the code example of using querying on JENA TDB and RDF OTG in our evaluation.
 {{{
 //Example code running with the first query on JENA TDB
 public static void query1(int numProfile, JenaMasterGraph JMG){
@@ -110,19 +109,48 @@ public static void query1(int numProfile, JenaMasterGraph JMG){
        while (itr.hasNext()){
          i++;
 	 QuerySolution sol = itr.next();
-	 Log.d("System.out", i + " s : "  +    sol.get("s").asNode().toString()
-				  + " p : "  +   sol.get("p").asNode().toString()
-				  + " o : "  +   sol.get("p").asNode().toString());
+	 Log.d("System.out", i + " s : "  +   sol.get("s").asNode().toString()
+			       + " p : "  +   sol.get("p").asNode().toString()
+			       + " o : "  +   sol.get("p").asNode().toString());
+       }
+       fileUtil.write(1);
+       fileUtil.close();
+       
+    }catch(IOException e){
+       e.printStackTrace();
+    }
+}
+}}}
+
+{{{
+public static void query1(Graph graph) {
+    FileUtil fileUtil = new FileUtil(fileName + "q1");
+
+    try {
+        fileUtil.start();
+        fileUtil.write(1);
+
+	Query query = QueryFactory.create(query1);
+	QueryExecution qExec = QueryExecutionFactory.create(query, graph);
+
+	ResultSet itr = qExec.execSelect();
+	int i = 0;
+	while (itr.hasNext()) {
+            i++;
+	    QuerySolution sol = itr.next();
+
+	    Log.d("System.out", i + " : " + NodeLibrary.nodeString(sol.get("s")) +
+                                     "--" + NodeLibrary.nodeString(sol.get("p")) +
+                                     "--" + NodeLibrary.nodeString(sol.get("o")));
 	    }
 	    fileUtil.write(1);
 	    fileUtil.close();
-	}catch(IOException e){
+	    qExec.close();
+	} catch (IOException e) {
 	    e.printStackTrace();
 	}
-	
-	
-	
     }
+}
 }}}
   
 ===2.4 Scalability evaluation===
