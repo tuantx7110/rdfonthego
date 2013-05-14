@@ -2,8 +2,7 @@
 
 = Introduction =
 
-Add your content here.
-
+This tutorial explain how to set up the RDF On The Go and how we did the experiences on that.
 
 = Details =
 
