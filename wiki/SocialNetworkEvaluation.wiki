@@ -16,4 +16,6 @@ This new version of RDF OTG provides native RDF storage and Sparql querying engi
 ==2. Setting up for evaluations==
 
 ===2.1 Social network generation===
-
+===2.2 Social network generation===
+===2.3 Social network generation===
+===2.4 Social network generation===
