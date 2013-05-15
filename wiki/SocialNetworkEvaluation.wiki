@@ -240,8 +240,9 @@ static String query6 = StrUtils.strjoin("\n",
 }}}
 
 ===2.4 Scalability evaluation===
- For scalability evaluation we only doing experiment on our RDF OTG. We using data set of 900 profiles(each simulated graph contains 300 profiles) for HTC, 1200 profiles(each simulated graph contains 400 profiles) for GALAXY and NEXUS. With RDF OTG we are able to use sparql with named graph to trace back the data from source graph. Here are the extended queries in the last experiment.
+ For scalability evaluation we only doing experiment on our RDF OTG. We using data set of 900 profiles(each simulated graph contains 300 profiles) for HTC, 1200 profiles(each simulated graph contains 400 profiles) for GALAXY and NEXUS. With RDF OTG we are able to use sparql with named graph to trace back the data from source graph.
 
+ Here are the extended queries in the last experiment.
 {{{
 static String query7 = StrUtils.strjoin("\n", 
 "PREFIX foaf:        <http://xmlns.com/foaf/0.1/>", 
@@ -283,4 +284,3 @@ static String query8 = StrUtils.strjoin("\n",
         "}",
 "}");
 }}}
-
