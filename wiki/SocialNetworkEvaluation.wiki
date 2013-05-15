@@ -90,7 +90,7 @@ This new version of RDF OTG provides native RDF storage and Sparql querying engi
 ===2.3 Comparing query evaluation===
  For evaluating the query processor, we implemented Integration application with both Jena TDB and RDF OTG. The applications could be found in the download of this project. With each application, we set up 45 profiles(15 in each dataset) on HTC, 180 profiles(60 in each data set) on GALAXY, 120 profiles(40 in each data set) on NEXUS 7. After than we measure the response time of each query.
 
-The scripts below are showing the code example of using querying on JENA TDB and RDF OTG in our evaluation.
+ The scripts below are showing the code example of using querying on JENA TDB and RDF OTG in our evaluation.
 {{{
 //Example code running with the first query on JENA TDB
 public static void query1(int numProfile, JenaMasterGraph JMG){
@@ -239,5 +239,10 @@ static String query6 = StrUtils.strjoin("\n",
    "}");
 }}}
 
-  
 ===2.4 Scalability evaluation===
+ For scalability evaluation we only doing experiment on our RDF OTG. We using data set of 900 profiles(each simulated graph contains 300 profiles) for HTC, 1200 profiles(each simulated graph contains 400 profiles) for GALAXY and NEXUS.
+
+
+
+
+
