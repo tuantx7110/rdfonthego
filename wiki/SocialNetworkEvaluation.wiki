@@ -240,9 +240,47 @@ static String query6 = StrUtils.strjoin("\n",
 }}}
 
 ===2.4 Scalability evaluation===
- For scalability evaluation we only doing experiment on our RDF OTG. We using data set of 900 profiles(each simulated graph contains 300 profiles) for HTC, 1200 profiles(each simulated graph contains 400 profiles) for GALAXY and NEXUS.
+ For scalability evaluation we only doing experiment on our RDF OTG. We using data set of 900 profiles(each simulated graph contains 300 profiles) for HTC, 1200 profiles(each simulated graph contains 400 profiles) for GALAXY and NEXUS. With RDF OTG we are able to use sparql with named graph to trace back the data from source graph. Here are the extended queries in the last experiment.
 
+{{{
+static String query7 = StrUtils.strjoin("\n", 
+"PREFIX foaf:        <http://xmlns.com/foaf/0.1/>", 
+"PREFIX rdf:         <http://www.w3.org/1999/02/22-rdf-syntax-ns#>",
+"PREFIX sioc:        <http://rdfs.org/sioc/ns#>",
+"PREFIX fbph :       <http://www.facebook.com/photoalbum/>", 
 
+"SELECT    ?person",
+"{ ", 
+      "GRAPH <linkedin>",
+        "{",
+           "?person rdf:type  foaf:Person.",	
+        "}",
+      "GRAPH <master>",
+        "{",     	
+        "?user sioc:account_of ?person.",
+        "?user sioc:create_of pbph:pa103.",
+        "}",
+"}");
+}}}
 
+{{{
+static String query8 = StrUtils.strjoin("\n", 
+"PREFIX foaf:        <http://xmlns.com/foaf/0.1/>", 
+"PREFIX rdf:         <http://www.w3.org/1999/02/22-rdf-syntax-ns#>",
+"PREFIX sioc:        <http://rdfs.org/sioc/ns#>",
+"PREFIX sibv :       <http ://www.ins.cwi.nl/sib/vocabulary />", 
 
+"SELECT ?comment",
+"{ ", 
+      "GRAPH <facebook>",
+        "{",
+           "?comment rdf:type  sibv:Comment.",	
+           "?user    sioc:creator_of  ?comment.",	
+        "}",
+      "GRAPH <master>",
+        "{",     	
+        "?user sioc:account_of <http://linkedin.com/person/p174>.",
+        "}",
+"}");
+}}}
 
