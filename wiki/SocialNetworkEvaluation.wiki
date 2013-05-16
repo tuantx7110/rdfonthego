@@ -325,7 +325,7 @@ static String query7 = StrUtils.strjoin("\n",
       "GRAPH <master>",
         "{",     	
         "?user sioc:account_of ?person.",
-        "?user sioc:creator_of pbph:pa453.",
+        "?user sioc:creator_of fbph:pa453.",
         "}",
 "}");
 }}}
