@@ -38,12 +38,12 @@ This new version of RDF OTG provides native RDF storage and Sparql querying engi
  In RDF OTG, we also plugged  Jena Riot Loader in case of parsing RDF from n-triples format. In first experiment, for evaluating throughput of inserting data. We created a graph with about 1500 users which contains about one million triples and parse into the store, then we measure the insertion speed. The codes of experiment are in the scripts below: 
 
 {{{ 
- //TDB JENA
+ //TDBOID
  public static void start(){
  String loading_path = Environment.getExternalStorageDirectory() + "/Experiment/";
- String store_path   = Environment.getExternalStorageDirectory() + "/JenaTDB/";
+ String store_path   = Environment.getExternalStorageDirectory() + "/TDBOID/";
  Graph graph = TDBFactory.createGraph(store_path);
- FileUtil fileUtil = new FileUtil("JenaTDB_1_Ex");
+ FileUtil fileUtil = new FileUtil("TDBOID_1_Ex");
  BufferedReader in;
  ParserTurtle parser = new ParserTurtle();
  try {
@@ -91,10 +91,10 @@ This new version of RDF OTG provides native RDF storage and Sparql querying engi
  The experiments stopped when the loading finishes or the application crashes due to out of heap memory.
 
 ====2.2.2 Comparing query evaluation====
- For evaluating the query processor, we implemented Integration application with both Jena TDB and RDF OTG. The applications could be found in <a href= 'https://play.google.com/store/apps/details?id=org.openintents.filemanager&feature=search_result#?t=W251bGwsMSwxLDEsIm9yZy5vcGVuaW50ZW50cy5maWxlbWFuYWdlciJd'>here</a>. With each application, we set up 45 profiles(15 in each dataset) on HTC, 180 profiles(60 in each data set) on GALAXY, 120 profiles(40 in each data set) on NEXUS 7. After than we measure the response time of each query.
+ For evaluating the query processor, we implemented Integration application with both TDBOID and RDF OTG. The applications could be found in <a href= 'https://play.google.com/store/apps/details?id=org.openintents.filemanager&feature=search_result#?t=W251bGwsMSwxLDEsIm9yZy5vcGVuaW50ZW50cy5maWxlbWFuYWdlciJd'>here</a>. With each application, we set up 45 profiles(15 in each dataset) on HTC, 180 profiles(60 in each data set) on GALAXY, 120 profiles(40 in each data set) on NEXUS 7. After than we measure the response time of each query.
 
 {{{
-//Example code setup data for second experiment with Jena TDB.
+//Example code setup data for second experiment with TDBOID.
 static void load_htc() {
    AdParserTurtle parser = new AdParserTurtle();
    try {
@@ -131,16 +131,33 @@ static void load_htc() {
 
 
 {{{
-//
+//Example code setup data for second experiment with RDF_OTG.
+static void load_htc() {
+    try {
+        Graph graph = new MasterGraph("facebook");
+       	RiotLoader.read(loadPath + "mr0_fb300.nt", graph);
+	graph.sync();
+    
+        Graph graph1 = new MasterGraph("linked");
+        RiotLoader.read(loadPath + "mr0_lk300.nt", graph1);
+        graph1.sync();
 
+        Graph graph2 = new MasterGraph("phone");
+	RiotLoader.read(loadPath + "mr0_fb400.nt", graph2);
+	graph2.sync();
+
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+}
 }}}
 
 
 
- The scripts below are showing the code example of using querying on JENA TDB and RDF OTG in our evaluation.
+ The scripts below are showing the code example of using querying on TDBOID and RDF OTG in our evaluation.
 
 {{{
-//Example code running with the first query on JENA TDB
+//Example code running with the first query on TDBOID 
 public static void query1(int numProfile, JenaMasterGraph JMG){
    String file = fileName + "_Q1_" + Integer.toString(numProfile);
    System.out.println(file);
