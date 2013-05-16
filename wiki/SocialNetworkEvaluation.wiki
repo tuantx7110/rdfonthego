@@ -50,7 +50,7 @@ This new version of RDF OTG provides native RDF storage and Sparql querying engi
 	    fileUtil.start();
 	    for (int i = 1; i < 100; i++) {
 	        fileUtil.write(graph.size());   
-	        int k = 1700000 + i;
+	        int k = 1500000 + i;
 		in = new BufferedReader(new FileReader(loading_path + "mr0_fb" + Integer.toString(k) + ".nt"));
 		parser.parse(graph, " ", in);
 		fileUtil.write(graph.size());
@@ -75,7 +75,7 @@ This new version of RDF OTG provides native RDF storage and Sparql querying engi
 	    fileUtil.write(graph.size());
 	    for (int i = 1; i < 100; i++) {
 	        fileUtil.write(graph.size());
-		int k = 1700000 + i;
+		int k = 1500000 + i;
 		RiotLoader.read(loading_path + "mr0_fb" + Integer.toString(k) + ".nt", graph);
 		fileUtil.write(graph.size());
 		graph.sync();
