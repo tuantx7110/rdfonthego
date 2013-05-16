@@ -93,7 +93,8 @@ This new version of RDF OTG provides native RDF storage and Sparql querying engi
 ===2.3 Comparing query evaluation===
  For evaluating the query processor, we implemented Integration application with both Jena TDB and RDF OTG. The applications could be found in <a href= 'https://play.google.com/store/apps/details?id=org.openintents.filemanager&feature=search_result#?t=W251bGwsMSwxLDEsIm9yZy5vcGVuaW50ZW50cy5maWxlbWFuYWdlciJd'>here</a>. With each application, we set up 45 profiles(15 in each dataset) on HTC, 180 profiles(60 in each data set) on GALAXY, 120 profiles(40 in each data set) on NEXUS 7. After than we measure the response time of each query.
 
-{{{//Example code setup data for second experiment.
+{{{
+//Example code setup data for second experiment.
 static void load_htc() {
     FileUtil fileUtils = new FileUtil(fileName + "htc");
     
