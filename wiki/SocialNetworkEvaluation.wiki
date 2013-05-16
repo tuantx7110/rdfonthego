@@ -90,53 +90,51 @@ This new version of RDF OTG provides native RDF storage and Sparql querying engi
 
  The experiments stopped when the loading finishes or the application crashes due to out of heap memory.
 
-===2.3 Comparing query evaluation===
+====2.2.2 Comparing query evaluation====
  For evaluating the query processor, we implemented Integration application with both Jena TDB and RDF OTG. The applications could be found in <a href= 'https://play.google.com/store/apps/details?id=org.openintents.filemanager&feature=search_result#?t=W251bGwsMSwxLDEsIm9yZy5vcGVuaW50ZW50cy5maWxlbWFuYWdlciJd'>here</a>. With each application, we set up 45 profiles(15 in each dataset) on HTC, 180 profiles(60 in each data set) on GALAXY, 120 profiles(40 in each data set) on NEXUS 7. After than we measure the response time of each query.
 
 {{{
-//Example code setup data for second experiment.
+//Example code setup data for second experiment with Jena TDB.
 static void load_htc() {
-    FileUtil fileUtils = new FileUtil(fileName + "htc");
+   AdParserTurtle parser = new AdParserTurtle();
+   try {
+       JenaMasterGraph jmg = new JenaMasterGraph("facebook");
+       BufferedReader in;
+       for (int i = 1; i < 16; i++) {
+          int k = 300000+i;
+	  in = new BufferedReader(new FileReader(loadPath + "mr0_fb" + Integer.toString(k) + ".nt"));
+	  parser.parse(jmg, " ", in);
+       }
+       jmg.sync();
     
-    AdParserTurtle parser = new AdParserTurtle();
-	try {
-	    JenaMasterGraph jmg = new JenaMasterGraph("facebook");
-	    BufferedReader in;
-	    fileUtils.start();
-	    fileUtils.write(0);
-	    for (int i = 1; i < 16; i++) {
-		int k = 300000+i;
-		in = new BufferedReader(new FileReader(loadPath + "mr0_fb" + Integer.toString(k) + ".nt"));
-		parser.parse(jmg, " ", in);
-		fileUtils.write(i);
-	    }
-	    jmg.sync();
-	    jmg.close();
-	    
-	    jmg = new JenaMasterGraph("linked");
-	    for (int i = 1; i < 16; i++) {
-		int k = 300000 + i;
-		in = new BufferedReader(new FileReader(loadPath + "mr0_lk" + Integer.toString(k) + ".nt"));
-		parser.parse(jmg, " ", in);
-		fileUtils.write(i +20);
-	    }
-	    jmg.sync();
-	    jmg.close();
-	    jmg = new JenaMasterGraph("phone");
-	    for (int i = 1; i < 16; i++) {
-		int k = 300000+ i ;
+       jmg = new JenaMasterGraph("linked");
+       for (int i = 1; i < 16; i++) {
+          int k = 300000 + i;
+	  in = new BufferedReader(new FileReader(loadPath + "mr0_lk" + Integer.toString(k) + ".nt"));
+	  parser.parse(jmg, " ", in);
+      }
+      jmg.sync();
+
+      jmg = new JenaMasterGraph("phone");
+      for (int i = 1; i < 16; i++) {
+  	int k = 300000+ i ;
 		in = new BufferedReader(new FileReader(loadPath + "mr0_ph" + Integer.toString(k) + ".nt"));
 		parser.parse(jmg, " ", in);
-		 fileUtils.write(i+40);
-	    }
-	    jmg.sync();
-	    jmg.close();
-	    fileUtils.write(1);
-	} catch (IOException e) {
+      }
+      jmg.close();
+
+    } catch (IOException e) {
 	    e.printStackTrace();
-	}
     }
+}
 }}}
+
+
+{{{
+//
+
+}}}
+
 
 
  The scripts below are showing the code example of using querying on JENA TDB and RDF OTG in our evaluation.
@@ -289,7 +287,7 @@ static String query6 = StrUtils.strjoin("\n",
    "}");
 }}}
 
-===2.4 Scalability evaluation===
+====2.2.3 Scalability evaluation====
  For scalability evaluation we only doing experiment on our RDF OTG. We using data set of 900 profiles(each simulated graph contains 300 profiles) for HTC, 1200 profiles(each simulated graph contains 400 profiles) for GALAXY and NEXUS. With RDF OTG we are able to use sparql with named graph to trace back the data from source graph.
 
  Here are the extended queries in the last experiment:
