@@ -22,7 +22,7 @@ This new version of RDF OTG provides native RDF storage and Sparql querying engi
 
 
 ===2.2 Running the experiments===
- In our framework, we provide two different Graphs to handle the data. The first one is OTGGraph, this is a single view graph, it doesn't contains the Data Consolidation or ID Resolver. The second one is the Mastergraph, which provides you an unified view of data when retrieving data from different sources. The "Data Consolidation" and "ID Resolver" will operate data automatically when they find two ID are matched. It's also keep your data distinct from different sources and you can trace back you data using graph named query(Example in part 3 of the evaluation). 
+ In our framework, we provide two different Graphs to handle the data. The first one is OTGGraph, this is a single view graph, it doesn't contains the Data Consolidation or ID Resolver. The second one is the 'MasterGraph', which provides you an unified view of data when retrieving data from different sources. The "Data Consolidation" and "ID Resolver" will operate data automatically when they find two ID are matched. It's also keep your data distinct from different sources and you can trace back you data using graph named query(Example in part 3 of the evaluation). 
 
 ====2.2.1 Update throughput evaluation====
  After generating the simulated graph, we put the n-triples data files into SD card under folder 'Experiment'. On Galaxy and Nexus, we can put them into their virtual removable storage. The Android OS will create an virtual path to copied directory and treat it as it is in the external storage. Thus we can get access to these files by the same way on 3 devices.
