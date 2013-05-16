@@ -254,24 +254,24 @@ static String query7 = StrUtils.strjoin("\n",
 
 "SELECT    ?person",
 "{ ", 
-      "GRAPH <linkedin>",
+      "GRAPH <linked>",
         "{",
            "?person rdf:type  foaf:Person.",	
         "}",
       "GRAPH <master>",
         "{",     	
         "?user sioc:account_of ?person.",
-        "?user sioc:create_of pbph:pa103.",
+        "?user sioc:creator_of pbph:pa453.",
         "}",
 "}");
 }}}
 
 {{{
 static String query8 = StrUtils.strjoin("\n", 
-"PREFIX foaf:        <http://xmlns.com/foaf/0.1/>", 
-"PREFIX rdf:         <http://www.w3.org/1999/02/22-rdf-syntax-ns#>",
-"PREFIX sioc:        <http://rdfs.org/sioc/ns#>",
-"PREFIX sibv :       <http ://www.ins.cwi.nl/sib/vocabulary />", 
+"PREFIX foaf: <http://xmlns.com/foaf/0.1/>", 
+"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>",
+"PREFIX sioc: <http://rdfs.org/sioc/ns#>",
+"PREFIX sibv: <http://www.ins.cwi.nl/sib/vocabulary/>", 
 
 "SELECT ?comment",
 "{ ", 
